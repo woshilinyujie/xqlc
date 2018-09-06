@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/manage_lv_bottom"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="#f6f7fb"
+    android:visibility="gone"
+    android:minHeight="40dp">
+
+
+    <TextView
+        android:id="@+id/manage_lv_past"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center_vertical"
+        android:text="查看往期产品"
+        android:textColor="#999999"
+        android:textSize="@dimen/s12" />
+
+    <ImageView
+        android:layout_width="7dp"
+        android:layout_height="@dimen/s12"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/manage_lv_past"
+        android:background="@mipmap/arrow_more" />
+
+
+</RelativeLayout>

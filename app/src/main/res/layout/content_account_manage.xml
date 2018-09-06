@@ -1,0 +1,480 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/account_manage_whole"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.rongxun.xqlc.Activities.AccountManageActivity"
+    tools:showIn="@layout/activity_account_manage">
+
+
+    <TextView
+        android:textSize="15dp"
+        android:textColor="#333333"
+        android:paddingLeft="15dp"
+        android:gravity="center_vertical"
+        android:text="账户中心"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:id="@+id/account_manage_table_row_real_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:paddingLeft="15dp"
+                android:background="@mipmap/jingxuan_bg"
+                android:id="@+id/account_manage_bank"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+            >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="我的银行卡"
+                    android:textColor="@color/colorLightBlack"
+                    android:textSize="15dp"
+
+                    />
+
+                <com.rongxun.xqlc.UI.IconFontTextView
+                    android:id="@+id/account_manage_real_name_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="@string/angle_right"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/account_manage_real_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:layout_toLeftOf="@+id/account_manage_real_name_icon"
+                    android:text="未绑定"
+                    android:textColor="#333333"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+        </TableRow>
+
+
+
+        <TableRow
+            android:layout_marginTop="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:paddingLeft="15dp"
+                android:background="@mipmap/jingxuan_bg"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="实名认证"
+                    android:textColor="@color/colorLightBlack"
+                    android:textSize="15dp"
+
+                    />
+
+
+                <com.rongxun.xqlc.UI.IconFontTextView
+                    android:id="@+id/account_manage_real_name_icon1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="@string/angle_right"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:layout_toLeftOf="@+id/account_manage_real_name_icon1"
+                    android:text="xxx"
+                    android:textColor="#333333"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/account_manage_table_row_shipping_address"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="我的收货地址"
+                    android:textColor="@color/colorLightBlack"
+                    android:textSize="15dp"
+
+                    />
+
+                <com.rongxun.xqlc.UI.IconFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="@string/angle_right"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="16dp" />
+
+            </RelativeLayout>
+        </TableRow>
+        <TextView
+            android:textSize="15dp"
+            android:textColor="#333333"
+            android:paddingLeft="15dp"
+            android:gravity="center_vertical"
+            android:text="安全设置"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <TableRow
+            android:id="@+id/account_manage_table_row_set_login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:paddingLeft="15dp"
+                android:background="@mipmap/jingxuan_bg"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="修改登录密码"
+                    android:textColor="@color/colorLightBlack"
+                    android:textSize="15dp"
+
+                    />
+
+                <com.rongxun.xqlc.UI.IconFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="@string/angle_right"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="16dp" />
+
+            </RelativeLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_marginTop="10dp"
+            android:id="@+id/account_manage_table_row_set_safe"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:paddingLeft="15dp"
+                android:background="@mipmap/jingxuan_bg"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp">
+
+
+                <TextView
+                    android:id="@+id/safe_pass_word_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="交易密码设置"
+                    android:textColor="@color/colorLightBlack"
+                    android:textSize="15dp"
+
+                    />
+
+                <com.rongxun.xqlc.UI.IconFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="@string/angle_right"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="16dp" />
+
+            </RelativeLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/account_manage_table_row_set_code"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/account_manage_code_img"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:background="@mipmap/account_manage_shoushi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/account_manage_code_img"
+                    android:text="手势密码"
+                    android:textColor="@color/colorLightBlack"
+                    android:textSize="15dp"
+
+                    />
+
+                <ImageView
+                    android:id="@+id/account_manage_slide_button"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/slide_button" />
+
+            </RelativeLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/account_manage_table_row_modify_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/account_manage_code_img1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:background="@mipmap/account_manage_shoushi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/account_manage_code_img1"
+                    android:text="修改手势密码"
+                    android:textColor="@color/colorLightBlack"
+                    android:textSize="15dp"
+
+                    />
+
+                <com.rongxun.xqlc.UI.IconFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="@string/angle_right"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="16dp" />
+
+            </RelativeLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/account_manage_table_row_modify_gesture"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp">
+
+                <ImageView
+                    android:id="@+id/account_manage_modify_gesture_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@mipmap/modify_safe" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/account_manage_modify_gesture_img"
+                    android:text="手势密码"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="15dp"
+
+                    />
+
+                <com.rongxun.xqlc.UI.IconFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="@string/angle_right"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="16dp" />
+
+            </RelativeLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:id="@+id/account_manage_evaluate_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp">
+
+                <ImageView
+                    android:id="@+id/account_manage_evaluate"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:background="@mipmap/evaluate" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/account_manage_evaluate"
+                    android:text="风险能力承受评估"
+                    android:textColor="@color/colorLightBlack"
+                    android:textSize="15dp"
+
+                    />
+
+                <com.rongxun.xqlc.UI.IconFontTextView
+                    android:id="@+id/account_manage_evaluate_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="@string/angle_right"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/account_manage_evaluate_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:layout_toLeftOf="@+id/account_manage_evaluate_icon"
+                    android:text="未绑定"
+                    android:textColor="#bbbbbb"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/account_manage_exit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_background_normal"
+        android:text="退出"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/s18" />
+
+
+</LinearLayout>

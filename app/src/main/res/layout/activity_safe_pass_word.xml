@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#f6f7fb"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0sp">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/s50"
+            android:background="@color/colorWhite"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <com.rongxun.xqlc.UI.IconFontTextView
+                android:id="@+id/safe_password_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="left"
+                android:gravity="center"
+                android:text="@string/angle_left"
+                android:textColor="@color/colorBlack"
+                android:textSize="24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:text="设置交易密码"
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp"
+                android:visibility="visible" />
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/s15"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/s15"
+        android:paddingRight="@dimen/s15">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:text="输入密码"
+            android:textColor="#666666"
+            android:textSize="@dimen/s14" />
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6">
+
+            <EditText
+                android:id="@+id/safe_password_password1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/s50"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@null"
+                android:hint="密码长度6-16"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:textColor="#999999"
+                android:textColorHint="#cccccc"
+                android:textSize="@dimen/s13" />
+
+        </RelativeLayout>
+    </LinearLayout>
+<View android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_marginRight="@dimen/s15"
+    android:layout_marginLeft="@dimen/s15"
+    android:background="#e2e2e2"/>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/s15"
+        android:paddingRight="@dimen/s15">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:text="再次确认"
+            android:textColor="#666666"
+            android:textSize="@dimen/s14" />
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6">
+
+            <EditText
+                android:id="@+id/safe_password_password2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/s50"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@null"
+                android:hint="请重复输入设置的交易密码"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:textColor="#999999"
+                android:textColorHint="#cccccc"
+                android:textSize="@dimen/s13" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/s40"
+        android:gravity="center"
+        android:text="温馨提示：交易密码在操作投资、充值、提现时使用"
+        android:textColor="#999999"
+        android:textSize="@dimen/s12" />
+
+    <Button
+        android:id="@+id/safe_password_sure"
+        android:background="@drawable/button_background_grey"
+        android:text="确定"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/s16"
+        android:layout_marginRight="@dimen/s15"
+        android:layout_marginLeft="@dimen/s15"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/s50" />
+
+</LinearLayout>

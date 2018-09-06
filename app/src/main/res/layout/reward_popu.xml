@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cash_award_bg"
+    android:layout_width="101dp"
+    android:layout_height="wrap_content"
+  >
+
+
+    <LinearLayout
+        android:layout_width="102dp"
+        android:layout_height="165dp"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="1dp"
+            android:background="#fa5454" />
+
+        <TextView
+            android:id="@+id/reward_popu_all"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/s40"
+            android:background="#fa5454"
+            android:gravity="center"
+            android:text="全部"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/s16" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="1dp"
+            android:background="#fa5454" />
+
+        <TextView
+            android:background="#ffffff"
+            android:id="@+id/reward_popu_putong"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/s40"
+            android:gravity="center"
+            android:text="普通奖励"
+            android:textColor="#333333"
+            android:textSize="@dimen/s16" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="1dp"
+            android:background="#fa5454" />
+
+        <TextView
+            android:background="#ffffff"
+            android:id="@+id/reward_popu_yaoqing"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/s40"
+            android:gravity="center"
+            android:text="邀请奖励"
+            android:textColor="#333333"
+            android:textSize="@dimen/s16" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="1dp"
+            android:background="#fa5454" />
+
+        <TextView
+            android:background="#ffffff"
+            android:id="@+id/reward_popu_jiaxi"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/s40"
+            android:gravity="center"
+            android:text="加息卷奖励"
+            android:textColor="#333333"
+            android:textSize="@dimen/s16" />
+        <View
+            android:layout_width="100dp"
+            android:layout_height="1dp"
+            android:background="#fa5454" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="165dp"
+        android:background="#fa5454"/>
+    <View
+        android:layout_alignParentRight="true"
+        android:layout_width="1dp"
+        android:layout_height="165dp"
+        android:background="#fa5454"/>
+
+</RelativeLayout>

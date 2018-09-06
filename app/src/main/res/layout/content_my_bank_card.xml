@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f6f7fb"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.rongxun.xqlc.Activities.MyBankCardActivity"
+    tools:showIn="@layout/activity_my_bank_card">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_marginLeft="@dimen/s15"
+        android:layout_marginRight="@dimen/s15"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/mybank_select"
+        android:orientation="vertical"
+        android:paddingBottom="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+
+            <RelativeLayout
+                android:id="@+id/my_bank_card_rl"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/mybank_select_solid"
+                android:gravity="center">
+
+
+                <ImageView
+                    android:id="@+id/my_bank_card_bank_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/my_bank_card_bank_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/my_bank_card_rl"
+                android:text="银行"
+                android:textColor="#333333"
+                android:textSize="18dp" />
+
+        </RelativeLayout>
+
+        <TextView
+
+            android:id="@+id/my_bank_card_card_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="****    ****    ****    ****   0000"
+            android:textColor="#333333"
+            android:textSize="20dp" />
+
+        <!--<TextView-->
+        <!--android:id="@+id/my_bank_card_user_name"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:text=""-->
+        <!--android:textColor="@color/colorGrey"-->
+        <!--android:textSize="16dp" />-->
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f6f7fb"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="20dp">
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+
+                android:gravity="center"
+                android:background="@drawable/point"
+                android:layout_marginLeft="5dp"
+                android:layout_width="12dp"
+                android:layout_height="12dp">
+
+                <TextView
+                    android:textSize="10dp"
+                    android:gravity="center"
+                    android:textColor="#7e7d7d"
+                    android:text="!"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+            <TextView
+
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:text="资金为同卡进出，只能绑定一种银行卡"
+                android:textColor="#999999"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+
+                android:gravity="center"
+                android:background="@drawable/point"
+                android:layout_marginLeft="5dp"
+                android:layout_width="12dp"
+                android:layout_height="12dp">
+
+                <TextView
+                    android:textSize="10dp"
+                    android:gravity="center"
+                    android:textColor="#7e7d7d"
+                    android:text="!"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:lineSpacingExtra="5dp"
+                android:text="如需更换，请拨打客服热线电话 400-000-000"
+                android:textColor="#999999"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

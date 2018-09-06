@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_quickly_play"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="com.rongxun.xqlc.Activities.QuicklyPlayActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:elevation="0px">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/article_list_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorWhite"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <com.rongxun.xqlc.UI.IconFontTextView
+                    android:id="@+id/quickly_play_black"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="left"
+                    android:gravity="center"
+                    android:text="@string/angle_left"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="24dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/article_list_toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:text="快捷支付"
+                    android:textColor="#333333"
+                    android:textSize="18dp"
+                    android:visibility="visible" />
+
+
+                <ImageView
+                    android:layout_width="@dimen/s18"
+                    android:layout_height="@dimen/s18"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/s15"
+                    android:background="@mipmap/kefu_top"
+                    android:visibility="gone" />
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#e2e2e2" />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/s50"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="1dp"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="订单号"
+                    android:textColor="#999999"
+                    android:textSize="16dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/quickly_play_order"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical|right"
+                    android:text="--"
+                    android:textColor="#333333"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/s50"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="支付银行卡"
+                    android:textColor="#999999"
+                    android:textSize="@dimen/s16" />
+
+                <TextView
+
+                    android:id="@+id/quickly_play_bank_name_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="尾号"
+                    android:textColor="#333333"
+                    android:textSize="@dimen/s16" />
+
+                <TextView
+                    android:id="@+id/quickly_play_bank_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/quickly_play_bank_name_number"
+                    android:text="银行"
+                    android:textColor="#333333"
+                    android:textSize="@dimen/s16" />
+
+                <ImageView
+                    android:id="@+id/quickly_play_bank_iv"
+                    android:layout_width="@dimen/s20"
+                    android:layout_height="@dimen/s20"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="11dp"
+                    android:layout_marginRight="11dp"
+                    android:layout_toLeftOf="@+id/quickly_play_bank_name"
+                    android:layout_toStartOf="@+id/quickly_play_bank_name"
+                    android:textColor="#444444"
+                    android:textSize="@dimen/s14" />
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/s50"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="1dp"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="银行预留手机号"
+                    android:textColor="#999999"
+                    android:textSize="16dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/quickly_play_bank_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical|right"
+                    android:text="--"
+                    android:textColor="#333333"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/quickly_play_isinverst_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#e2e2e2" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/s50"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dp"
+                        android:text="投资金额"
+                        android:textColor="#999999"
+
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/quickly_play_inverst_money"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="7"
+                        android:background="@null"
+                        android:gravity="center_vertical|right"
+                        android:text="--元"
+                        android:textColor="#333333"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/quickly_play_hongbao_ll"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/s50"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="#ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dp"
+                        android:text="优惠券抵扣"
+                        android:textColor="#999999"
+
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/quickly_play_hongbao_play"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="7"
+                        android:background="@null"
+                        android:gravity="center_vertical|right"
+                        android:text="--元"
+                        android:textColor="#333333"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/s50"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="#ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dp"
+                        android:text="金额支付"
+                        android:textColor="#999999"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/quickly_play_money_play"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="7"
+                        android:background="@null"
+                        android:gravity="center_vertical|right"
+                        android:text="--元"
+                        android:textColor="#333333"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#e2e2e2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/s50"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="1dp"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="金额支付"
+                    android:textColor="#999999"
+
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/quickly_play_money"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical|right"
+                    android:text="--元"
+                    android:textColor="#333333"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#e2e2e2" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/s60"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/shape_invest_white"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <Button
+                android:id="@+id/quickly_play_code_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="#ffffff"
+                android:text="获取验证码"
+                android:textColor="#666666"
+                android:textSize="@dimen/s14" />
+
+            <TextView
+                android:id="@+id/quickly_play_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:text="验证码"
+                android:textColor="#333333"
+                android:textSize="@dimen/s16" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toLeftOf="@+id/quickly_play_code_button"
+                android:background="#e2e2e2" />
+
+            <EditText
+                android:id="@+id/quickly_play_code"
+                android:layout_width="@dimen/s120"
+                android:layout_height="@dimen/s60"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/s35"
+                android:layout_toRightOf="@id/quickly_play_tv2"
+                android:background="@null"
+                android:hint="请输入验证码"
+                android:inputType="number"
+                android:maxLength="6"
+                android:paddingLeft="5dp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textSize="@dimen/s14" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/s60"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_invest_white"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+
+            <TextView
+                android:id="@+id/quickly_play_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="交易密码"
+                android:textColor="#333333"
+                android:textSize="@dimen/s16" />
+
+
+            <EditText
+                android:id="@+id/quickly_play_safepass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/s25"
+                android:layout_marginRight="@dimen/s15"
+                android:layout_toRightOf="@+id/quickly_play_tv1"
+                android:background="@null"
+                android:hint="请输入交易密码"
+                android:inputType="textPassword"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textSize="@dimen/s14" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/quickly_play_bank_sure"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_background_grey"
+            android:text="确认支付"
+            android:textColor="@drawable/white"
+            android:textSize="@dimen/s18" />
+
+        <TextView
+            android:id="@+id/quickly_play_forget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:paddingRight="20dp"
+            android:text="忘记交易密码？"
+            android:textColor="#3574fa"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:id="@+id/play_quickly_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="如需帮助，"
+                android:textSize="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请点击联系XX客服"
+                android:textColor="#3574fa"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.rongxun.xqlc.Activities.ForgetLoginPassActivity"
+    tools:showIn="@layout/activity_request_verify_code">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <com.rongxun.xqlc.UI.BianSeTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="找回登录密码"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="通过注册手机号找回登录密码"
+        android:textColor="#999999"
+        android:textSize="16dp" />
+
+    <TableLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:stretchColumns="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/s50">
+
+
+            <EditText
+
+                android:id="@+id/forget_login_pass_verify_phone"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_span="2"
+                android:background="@mipmap/jingxuan_bg"
+                android:focusable="true"
+                android:hint="请输入您的注册手机号"
+                android:inputType="textPassword"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="#bbbbbb"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/s14" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/s50">
+
+
+            <EditText
+                android:id="@+id/forget_login_pass_verify_code"
+                android:layout_width="fill_parent"
+                android:layout_height="55dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@mipmap/jingxuan_bg"
+                android:hint="请输入6位验证码"
+                android:inputType="number"
+                android:maxLength="8"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="#bbbbbb"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/s14"
+
+                />
+
+            <Button
+                android:id="@+id/forget_login_pass_verify_request_button"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="25dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:text="获取验证码"
+                android:textColor="#3574fa"
+                android:textSize="14dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/colorBackgroundWhite" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp">
+
+
+            <EditText
+                android:id="@+id/forget_login_password"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_span="2"
+                android:background="@mipmap/jingxuan_bg"
+                android:focusable="true"
+                android:hint="请输入新的登录密码"
+                android:inputType="textPassword"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="#bbbbbb"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/s14" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/colorBackgroundWhite" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp">
+
+
+            <EditText
+                android:id="@+id/forget_login_password1"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_span="2"
+                android:layout_toRightOf="@id/iv4"
+                android:background="@mipmap/jingxuan_bg"
+                android:focusable="true"
+                android:hint="再次输入新登录密码"
+                android:inputType="textPassword"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="#bbbbbb"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/s14" />
+
+        </RelativeLayout>
+
+
+    </TableLayout>
+
+
+    <Button
+        android:id="@+id/forget_login_pass_verify_action_button"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_background_normal"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp" />
+
+
+<ImageView
+    android:id="@+id/request_verify_code_toolbar_back"
+    android:layout_marginTop="100dp"
+    android:layout_gravity="center_horizontal"
+    android:background="@mipmap/left_lable"
+    android:layout_width="12dp"
+    android:layout_height="25dp" />
+
+    </LinearLayout>
+</ScrollView>

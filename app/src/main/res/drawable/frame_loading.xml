@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+
+    <item
+        android:drawable="@drawable/loading_juhua_12"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/loading_juhua_11"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/loading_juhua_10"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/loading_juhua_9"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/loading_juhua_8"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/loading_juhua_7"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/loading_juhua_6"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/loading_juhua_5"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/loading_juhua_4"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/loading_juhua_3"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/loading_juhua_2"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/loading_juhua_1"
+        android:duration="100" />
+
+</animation-list>

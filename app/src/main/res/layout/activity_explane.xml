@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_explane"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rongxun.xqlc.Activities.ExplaneActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0sp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/charge_and_cash_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorWhite"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <com.rongxun.xqlc.UI.IconFontTextView
+                android:id="@+id/explane_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="left"
+                android:gravity="center"
+                android:text="@string/angle_left"
+                android:textColor="@color/colorBlack"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/project_invest_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:text="名词解释"
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp"
+                android:visibility="visible" />
+        </android.support.v7.widget.Toolbar>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#e2e2e2" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="总资产"
+                android:textColor="#444444"
+                android:textSize="@dimen/s16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="总资产=投资中本金+提现中金额+可用余额"
+                android:textSize="@dimen/s14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="投资中本金"
+                android:textColor="#444444"
+                android:textSize="@dimen/s16" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="当前处于投资状态中的资金总额"
+                android:textSize="@dimen/s14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="提现中金额"
+                android:textColor="#444444"
+                android:textSize="@dimen/s16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="用户在发起提现申请之后，处于提现审核状态的金额"
+                android:textSize="@dimen/s14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="可用余额"
+                android:textColor="#444444"
+                android:textSize="@dimen/s16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="账户中可用于投资和提现的金额"
+                android:textSize="@dimen/s14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="累计收益"
+                android:textColor="#444444"
+                android:textSize="@dimen/s16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="累计收益=已到账利息+已使用红包+普通奖励收益+好友投资奖励"
+                android:textSize="@dimen/s14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="已到账利息"
+                android:textColor="#444444"
+                android:textSize="@dimen/s16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="所有已回款项目的利息总额"
+                android:textSize="@dimen/s14" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="已使用红包"
+                android:textColor="#444444"
+                android:textSize="@dimen/s16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="所有已使用红包的抵扣总额"
+                android:textSize="@dimen/s14" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="普通奖励收益"
+                android:textColor="#444444"
+                android:textSize="@dimen/s16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="参与普通活动所收到的奖励总额"
+                android:textSize="@dimen/s14" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="好友投资奖励"
+                android:textColor="#444444"
+                android:textSize="@dimen/s16" />
+
+            <TextView
+                android:layout_marginBottom="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="您邀请的好友投资后为您带来的收益总额"
+                android:textSize="@dimen/s14" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

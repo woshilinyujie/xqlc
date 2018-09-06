@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:background="#f6f7fb"
+        android:layout_height="10dp"/>
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:textSize="15dp"
+            android:textColor="#333333"
+            android:id="@+id/tender_record_item_borrow_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="金供宝81号第二十期==" />
+        <TextView
+            android:gravity="center"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:background="@drawable/invest_state_yellow"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:textColor="#ffffff"
+            android:id="@+id/tender_record_item_borrow_state"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="状态" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/cash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:gravity="center"
+            android:textSize="13dp"
+            android:textColor="#999999"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:text="--日"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/s15"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已投本金(元)"
+                android:textColor="#8e8b8b"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tender_record_item_borrow_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:ellipsize="end"
+                android:maxEms="11"
+                android:singleLine="true"
+                android:text="--"
+                android:textColor="#333333"
+                android:textSize="12dp" />
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="@dimen/s15"
+        android:layout_marginRight="@dimen/s15"
+        android:background="@mipmap/line"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp">
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已收回款"
+                android:textColor="#8e8b8b"
+                android:textSize="13dp" />
+
+            <TextView
+
+                android:id="@+id/tender_record_item_profit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="61dp"
+                android:text="--"
+                android:textColor="#333333"
+                android:textSize="12dp" />
+
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/tender_record_item_recent_rl"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:gravity="center"
+                android:id="@+id/tender_record_item_recent_time"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="10dp"
+                android:text="2012-12-12 "
+                android:textColor="#8e8b8b"
+                android:textSize="13dp" />
+
+
+        </RelativeLayout>
+        </RelativeLayout>
+
+
+</LinearLayout>

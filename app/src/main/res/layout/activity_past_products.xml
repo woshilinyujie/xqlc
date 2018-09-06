@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rongxun.xqlc.Activities.PastProductsActivity">
+
+    <RelativeLayout
+        android:id="@+id/past_product_rel_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#ffffff">
+
+        <RelativeLayout
+            android:id="@+id/past_product_rel_back"
+            android:layout_width="@dimen/s50"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/past_product_img_back"
+                android:layout_width="@dimen/s11"
+                android:layout_height="@dimen/s18"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/s20"
+                android:src="@mipmap/arrow_left" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/past_product_txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="往期产品"
+            android:textColor="#666666"
+            android:textSize="@dimen/s16" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f6f7fb" />
+
+    <com.rongxun.xqlc.UI.slidingtab.SlidingTabLayout
+        android:id="@+id/past_product_sliding_tab"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        app:tl_indicator_color="#fa5454"
+        app:tl_indicator_height="1.5dp"
+        app:tl_indicator_width_equal_title="true"
+        app:tl_tab_space_equal="true"
+        app:tl_textSelectColor="#fa5454"
+        app:tl_textUnselectColor="#808080"
+        app:tl_textsize="@dimen/s14"
+        app:tl_underline_color="#ffffff"
+        app:tl_underline_height="1dp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/past_product_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

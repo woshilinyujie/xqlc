@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0sp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/repayment_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorWhite"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <com.rongxun.xqlc.UI.IconFontTextView
+                android:id="@+id/register_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="left"
+                android:gravity="center"
+                android:text="@string/angle_left"
+                android:textColor="@color/colorBlack"
+                android:textSize="24dp"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:text="注册"
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp"
+                android:visibility="visible" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <com.rongxun.xqlc.UI.BianSeTextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设置登录密码"
+        android:textColor="#333333"
+        android:textSize="@dimen/s20" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/register_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="登录密码必须为6-20位数字和字母组合"
+        android:textColor="#999999"
+        android:textSize="@dimen/s16" />
+
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+
+        <RelativeLayout
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:background="@mipmap/jingxuan_bg"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="4">
+
+            <EditText
+                android:id="@+id/register_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/s50"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:hint="设置登录密码 "
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:textColor="#444444"
+                android:textColorHint="#bbbbbb"
+                android:textSize="@dimen/s14" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@mipmap/jingxuan_bg"
+        android:id="@+id/register_rl"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+
+        <EditText
+            android:id="@+id/register_imagine_number"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/s50"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="#ffffff"
+            android:hint="注册邀请码（选填）"
+            android:inputType="number"
+            android:maxLength="11"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:textColorHint="#bbbbbb"
+            android:textSize="@dimen/s14" />
+
+
+    </RelativeLayout>
+
+
+    <Button
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/s50"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/button_background_grey"
+        android:text="完成注册"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/s17" />
+
+
+    <LinearLayout
+        android:layout_marginRight="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/s15"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <!--<CheckBox-->
+        <!--android:id="@+id/regiester_check"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:checked="true"-->
+        <!--android:theme="@style/MyCheckBox" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已同意"
+            android:textColor="#999999"
+            android:textSize="@dimen/s14" />
+
+        <TextView
+            android:id="@+id/regiest_negotiate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《小强理财服务协议》"
+            android:textColor="#3f3f3f"
+            android:textSize="@dimen/s14" />
+
+        <TextView
+            android:id="@+id/regiest_book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《风险提示书》"
+            android:textColor="#3f3f3f"
+            android:textSize="@dimen/s14"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</LinearLayout>
+

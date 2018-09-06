@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rongxun.xqlc.Fragments.ManageInvestRecordActivity">
+    <!--标题-->
+    <RelativeLayout
+        android:id="@+id/manage_detail_rel_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/s45"
+        android:background="#ffffff">
+
+        <RelativeLayout
+            android:id="@+id/invest_record_rel_back"
+            android:layout_width="@dimen/s50"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/invest_record_img_back"
+                android:layout_width="@dimen/s11"
+                android:layout_height="@dimen/s18"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/s20"
+                android:src="@mipmap/arrow_left" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/invest_record_txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="投资记录"
+            android:textColor="#333333"
+            android:textSize="@dimen/s17" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/manage_investment_view_split"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#f6f7fb" />
+
+        <com.rongxun.xqlc.UI.PullToRefreshLayout
+            android:id="@+id/manage_invest_record_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/manage_investment_view_split">
+
+            <com.rongxun.xqlc.UI.LoadListView
+                android:id="@+id/invest_record_lv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#ffffff"
+                android:dividerHeight="0dp" />
+
+        </com.rongxun.xqlc.UI.PullToRefreshLayout>
+
+        <!--网络错误背景-->
+        <RelativeLayout
+            android:id="@+id/manage_investment_rel_net_error"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/list_nothing" />
+
+            <TextView
+                android:id="@+id/txt_net_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#bbbbbb"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

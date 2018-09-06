@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--banner-->
+    <ImageView
+        android:id="@+id/manage_img_banner"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:visibility="gone" />
+    <!--滚动提示-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/s35"
+        android:background="#FEFCEC">
+
+        <ImageView
+            android:id="@+id/manage_img_trumpet"
+            android:layout_width="@dimen/s18"
+            android:layout_height="@dimen/s18"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/s20"
+            android:src="@mipmap/trumpet" />
+
+        <com.rongxun.xqlc.UI.TipsFlipper
+            android:id="@+id/manage_fp_tips"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@id/manage_img_trumpet" />
+    </RelativeLayout>
+</LinearLayout>

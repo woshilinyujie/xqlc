@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_charge"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context="com.rongxun.xqlc.Activities.ChargeActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0sp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/charge_and_cash_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorWhite"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <com.rongxun.xqlc.UI.IconFontTextView
+                android:id="@+id/charge_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="left"
+                android:gravity="center"
+                android:text="@string/angle_left"
+                android:textColor="@color/colorBlack"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/project_invest_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:text="充值"
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp"
+                android:visibility="visible" />
+
+
+            <TextView
+                android:id="@+id/charge_and_cash_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/s15"
+                android:text="充值记录"
+                android:textColor="#646464" />
+        </android.support.v7.widget.Toolbar>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#e2e2e2" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/s60"
+                    android:layout_marginTop="10dp"
+                    android:background="#ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/s15"
+                    android:paddingRight="@dimen/s15">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="现金余额"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/s17" />
+
+                    <TextView
+                        android:id="@+id/charge_able_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="--"
+                        android:textColor="#ff3100"
+                        android:textSize="@dimen/s17" />
+
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/charge_and_cash_bund"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="1dp"
+                    android:background="#ffffff"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/s15"
+                    android:paddingRight="@dimen/s15">
+
+                    <ImageView
+                        android:id="@+id/charge_bank_icon"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="#000000"
+                        android:scaleType="fitXY" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="@dimen/s15"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            android:id="@+id/charge_bank"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:singleLine="true"
+                            android:text="--"
+                            android:textColor="#333333"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/upper_limit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="3dp"
+                            android:singleLine="true"
+                            android:text="--"
+                            android:textColor="#999999"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/s60"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_invest_white"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="@dimen/s15"
+                    android:paddingRight="@dimen/s15"
+                    android:paddingTop="5dp">
+
+                    <TextView
+                        android:id="@+id/charge_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="充值金额"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/s17" />
+
+                    <EditText
+
+                        android:id="@+id/charge_money_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/s60"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="@dimen/s15"
+                        android:layout_marginTop="1dp"
+                        android:layout_toRightOf="@+id/charge_tv"
+                        android:background="@null"
+                        android:hint="请输入充值金额"
+                        android:maxLines="9"
+                        android:numeric="decimal"
+                        android:singleLine="true"
+                        android:textColorHint="@color/colorTextHint"
+                        android:textCursorDrawable="@null"
+                        android:textSize="@dimen/s17" />
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/charge_problem"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/s30"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="@dimen/s15"
+                    android:text="常见问题?"
+                    android:textColor="#999999"
+                    android:textSize="@dimen/s14" />
+
+                <Button
+                    android:id="@+id/charge_action_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/button_selector"
+                    android:gravity="center"
+                    android:text="充值"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/s18"
+
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="如需帮助，"
+                    android:textColor="#333333"
+                    android:textSize="14dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true" />
+                <TextView
+                    android:text="请点击联系XX客服"
+                    android:textColor="#3574fa"
+                    android:textSize="14dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/top"
+        layout="@layout/top"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="#fff">
+
+        <TextView
+            android:id="@+id/tv_theconsignee"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:text="收货人"
+            android:textColor="#444444"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/AddTheReceivingAddressActivity_et_consignee"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/tv_theconsignee"
+            android:background="#00000000"
+            android:maxLength="15"
+            android:hint="请输入收货人姓名"
+            android:lines="1"
+            android:textSize="13dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/AddTheReceivingAddressActivity_rl_"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="#fff">
+
+        <TextView
+            android:id="@+id/tv_contactphone"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:text="联系电话"
+            android:textColor="#444444"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/AddTheReceivingAddressActivity_et_contactphone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/tv_contactphone"
+            android:background="#00000000"
+            android:maxLength="11"
+            android:hint="请输入联系电话"
+            android:inputType="phone"
+            android:lines="1"
+            android:textSize="13dp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/AddTheReceivingAddressActivity_rl_selectarea"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="#fff">
+
+        <TextView
+            android:id="@+id/tv_area"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:text="所在地区"
+            android:textColor="#444444"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_address_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/tv_area"
+            android:text="请选择"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="14dp"
+            android:background="#00000000"
+            android:src="@mipmap/more_tab" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/AddTheReceivingAddressActivity_et_detailedaddress"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        android:background="#fff"
+        android:gravity="start"
+        android:hint="请填写详细地址，街道门牌号等信息，不少于5个字"
+        android:paddingLeft="12dp"
+        android:textSize="13dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="20dp"
+        android:text="温馨提示"
+        android:textColor="#666666"
+        android:textSize="14dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:text="因平台发放实物类奖品需要，请你填写真实有效的收货地址信息。因虚假或缺失关键信息造成的奖品错发，平台概不负责。"
+        android:textColor="#666666"
+        android:textSize="12dp" />
+
+
+</LinearLayout>

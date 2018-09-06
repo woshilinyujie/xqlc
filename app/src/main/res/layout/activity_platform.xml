@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+ >
+
+    <RelativeLayout
+        android:id="@+id/activity_center_rel_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff">
+
+        <com.rongxun.xqlc.UI.IconFontTextView
+            android:id="@+id/explane_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:gravity="center"
+            android:text="@string/angle_left"
+            android:textColor="@color/colorBlack"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/activity_center_txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="活动中心"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <!--网络错误背景-->
+    <RelativeLayout
+        android:id="@+id/event_rel_net_error"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/activity_center_rel_title"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/event_txt_net_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="数据不翼而飞了，下拉试试看吧!"
+            android:textColor="#bbbbbb"
+            android:textSize="14dp" />
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/discover_platform_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/activity_center_rel_title">
+
+        <com.rongxun.xqlc.UI.LoadMoreListView
+            android:id="@+id/discover_platform_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.rongxun.xqlc.UI.LoadMoreListView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

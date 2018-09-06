@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.rongxun.xqlc.Activities.HbChooseActivity"
+    tools:showIn="@layout/activity_hb_choose">
+
+
+    <LinearLayout
+        android:id="@+id/hb_choose_ll"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/hb_choose_hongbao_bt"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:text="折扣卷"
+            android:textColor="#3574fa"
+            android:textSize="17dp" />
+
+        <Button
+            android:id="@+id/hb_choose_jiaxi_bt"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:text="加息卷"
+            android:textColor="#999999"
+            android:textSize="17dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hb_choose_ll1"
+        android:layout_marginBottom="3dp"
+        android:layout_below="@+id/hb_choose_ll"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <View
+                android:id="@+id/hb_choose_point_one"
+                android:layout_width="30dp"
+                android:layout_height="3dp"
+                android:background="#3574fa" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_weight="1">
+
+            <View
+                android:id="@+id/hb_choose_point_two"
+                android:visibility="gone"
+                android:layout_width="30dp"
+                android:layout_height="3dp"
+                android:background="#3574fa" />
+        </RelativeLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_below="@+id/hb_choose_ll1"
+        android:background="#e2e2e2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <ListView
+
+        android:id="@+id/hb_choose_list_view"
+        style="@style/scrollbar_shape_style"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hb_choose_ll1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:divider="#f5f5f5"
+        android:dividerHeight="5dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:scrollbarSize="5dp"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbars="none"
+        android:smoothScrollbar="true" />
+
+    <ListView
+        android:id="@+id/hb_choose_list_jiaxi"
+        style="@style/scrollbar_shape_style"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hb_choose_ll"
+        android:layout_marginBottom="90dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:divider="#f5f5f5"
+        android:dividerHeight="5dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:scrollbarSize="5dp"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbars="none"
+        android:smoothScrollbar="true"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/hb_choose_hongbao_ll"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="#f5f5f5"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已选择"
+                android:textColor="#666666"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/hb_choose_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textColor="#ff9000"
+                android:textSize="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="个红包，共"
+                android:textColor="#666666"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/choose_hb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textColor="#ff9000"
+                android:textSize="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元，投资总额"
+                android:textColor="#666666"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/choose_hb_increase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textColor="#ff9000"
+                android:textSize="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元"
+                android:textColor="#666666"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/hb_choose_jiaxi_ll"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="#f5f5f5"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已选择"
+                android:textColor="#666666"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/hb_choose_jiaxi_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ff9000"
+                android:textSize="12dp" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="张加息卷，加息"
+                android:textColor="#666666"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/hb_choose_jiaxi_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ff9000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="%,加息收益"
+                android:textColor="#666666"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/hb_choose_jiaxi_profit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ff9000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元,总投资额"
+                android:textColor="#666666"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/hb_choose_jiaxi_increase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ff9000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元"
+                android:textColor="#666666"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/hb_choose_toolbar_ok"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#fa5454"
+            android:text="确定"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
+    </LinearLayout>
+</RelativeLayout>
+

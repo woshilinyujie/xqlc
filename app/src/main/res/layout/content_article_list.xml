@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundWhite"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_article_list">
+
+    <com.rongxun.xqlc.UI.PullToRefreshLayout
+        android:id="@+id/article_list_swipe_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.rongxun.xqlc.UI.LoadListView
+            android:id="@+id/article_list_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f6f7fb"
+            android:divider="@null"
+            android:fastScrollEnabled="false"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:scrollbars="none">
+
+        </com.rongxun.xqlc.UI.LoadListView>
+    </com.rongxun.xqlc.UI.PullToRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/article_list_nothing_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:visibility="gone"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/article_list_nothing_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/list_nothing"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16dp"
+            android:text="暂无数据"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

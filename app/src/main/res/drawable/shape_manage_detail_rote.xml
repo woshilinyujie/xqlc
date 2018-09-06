@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- 实心 -->
+    <solid android:color="#fc564f" />
+    <!-- 渐变 -->
+    <gradient
+        android:endColor="#fc564f"
+        android:gradientRadius="300"
+        android:startColor="#fd6853"
+        android:type="radial" />
+    <!--&lt;!&ndash; 描边 &ndash;&gt;-->
+    <!--<stroke-->
+        <!--android:width="2dp"-->
+        <!--android:color="#9faddc" />-->
+    <!--&lt;!&ndash; 圆角 &ndash;&gt;-->
+    <!--<corners android:radius="2dp" />-->
+</shape>

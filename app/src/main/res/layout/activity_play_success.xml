@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_play_success"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context="com.rongxun.xqlc.Activities.PlaySuccessActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/article_list_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorWhite"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <ImageView
+                android:id="@+id/play_success_service"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="15dp"
+                android:background="@mipmap/login_content_sevice" />
+
+            <!--/>-->
+
+            <TextView
+                android:id="@+id/article_list_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:text="支付结果"
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp"
+                android:visibility="visible" />
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#e2e2e2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/play_success_iv"
+            android:layout_width="@dimen/s150"
+            android:layout_height="110dp"
+            android:layout_marginTop="30dp"
+            android:background="@mipmap/invest_defeated" />
+
+
+        <TextView
+            android:id="@+id/play_success_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/s20"
+            android:layout_marginTop="@dimen/s15"
+            android:text="message"
+            android:textColor="#333333"
+            android:textSize="@dimen/s20" />
+        <LinearLayout
+            android:id="@+id/play_success_ll1"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="支付金额"
+                android:textColor="#333333"
+                android:textSize="@dimen/s16" />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/play_success_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="- -"
+                android:textColor="#fa5454"
+                android:textSize="@dimen/s16" />
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/s15"
+            android:layout_marginTop="@dimen/s25"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="订单号:"
+                android:textColor="#333333"
+                android:textSize="@dimen/s14" />
+
+            <TextView
+                android:id="@+id/play_success_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- -"
+                android:textColor="#333333"
+                android:textSize="@dimen/s14" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/play_success_sure"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_background_normal"
+        android:text="确认"
+        android:textColor="@drawable/white"
+        android:textSize="@dimen/s18"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:id="@+id/play_success_ll"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="@dimen/s50"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/play_success_watch"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_white_selector"
+            android:text="查看资产"
+            android:textColor="#333333"
+            android:textSize="@dimen/s18" />
+
+        <Button
+            android:id="@+id/play_success_inverst"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_background_normal"
+            android:text="立即投资"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+</LinearLayout>

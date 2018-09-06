@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/myharvestaddress_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5">
+
+    <include
+        android:id="@+id/top"
+        layout="@layout/top"></include>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/myharvestaddress_ll_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/myharvestaddress_address_border_radius"
+        android:orientation="vertical"
+        android:layout_below="@+id/top"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            >
+
+            <TextView
+                android:id="@+id/myharvestaddress_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:textSize="16dp"
+                android:textColor="#333333"
+                android:text="--" />
+
+            <TextView
+                android:id="@+id/myharvestaddress_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="11dp"
+                android:textColor="#333333"
+                android:text="--"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="11dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/myharvestaddress_address_addressinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="14dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:textColor="#666666"
+            android:text="--"
+            />
+      <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginTop="16dp"
+          android:background="#EEEEEE"
+          />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/myharvestaddress_btn_editor"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="96dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/s22"
+                android:layout_height="@dimen/s22"
+                android:background="@mipmap/address_edit"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="编辑"
+                android:textSize="@dimen/s16"
+                android:textColor="#999999"
+                android:layout_marginLeft="5dp"
+                />
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/myharvestaddress_btn_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/s22"
+                    android:layout_height="@dimen/s22"
+                    android:background="@mipmap/address_delete"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="删除"
+                    android:textSize="@dimen/s16"
+                    android:textColor="#999999"
+                    android:layout_marginLeft="5dp"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+<RelativeLayout
+    android:id="@+id/hava_no_address_rl"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:visibility="gone"
+    >
+    <ImageView
+        android:id="@+id/iv_no_harvest_address"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/address_hava_no"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+
+        android:id="@+id/tv_no_harvest_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_no_harvest_address"
+        android:layout_marginTop="@dimen/s12"
+        android:text="您还没有添加收货地址哦"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
+    <Button
+        android:id="@+id/btn_addreceivingaddress"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button_background_normal"
+        android:layout_margin="10dp"
+        android:text="添加收货地址"
+        android:textColor="#fff"
+        android:visibility="gone"
+        android:textSize="18dp" />
+
+</RelativeLayout>

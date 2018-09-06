@@ -1,0 +1,80 @@
+<resources>
+
+    <!-- Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels. -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference"/>
+        <attr name="metaButtonBarButtonStyle" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="GestureLockViewGroup">
+        <attr name="color_no_finger_inner_circle" format="color"/>
+        <attr name="color_no_finger_outer_circle" format="color"/>
+        <attr name="color_finger_on" format="color"/>
+        <attr name="color_finger_up" format="color"/>
+        <attr name="count" format="integer"/>
+        <attr name="tryTimes" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="TasksCompletedView">
+        <attr name="radius" format="dimension"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="circleColor" format="color"/>
+        <attr name="ringColor" format="color"/>
+        <attr name="fullColor" format="color"/>
+        <attr name="circleStrokeWidth" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="round_image_view" >
+        <attr name="border_inside_color" format="color|reference"/>
+        <attr name="border_outside_color" format="color|reference"/>
+        <attr name="border_thickness" format="dimension"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="DropDownMenu">
+        <attr name="ddunderlineColor" format="color"/>
+        <attr name="dddividerColor" format="color"/>
+        <attr name="ddtextSelectedColor" format="color"/>
+        <attr name="ddtextUnselectedColor" format="color"/>
+        <attr name="ddmenuBackgroundColor" format="color"/>
+        <attr name="ddmaskColor" format="color"/>
+        <attr name="ddmenuTextSize" format="dimension"/>
+        <attr name="ddmenuSelectedIcon" format="reference"/>
+        <attr name="ddmenuUnselectedIcon" format="reference"/>
+    </declare-styleable>
+
+    <!--圆形进度条-->
+    <declare-styleable name="ProgressWheel">
+        <attr name="pwText" format="string" />
+        <attr name="pwTextColor" format="color" />
+        <attr name="pwTextSize" format="dimension" />
+        <attr name="pwBarColor" format="color" />
+        <attr name="pwRimColor" format="color" />
+        <attr name="pwRimWidth" format="dimension" />
+        <attr name="pwSpinSpeed" format="dimension" />
+        <attr name="pwDelayMillis" format="integer" />
+        <attr name="pwCircleColor" format="color" />
+        <attr name="pwRadius" format="dimension" />
+        <attr name="pwBarWidth" format="dimension" />
+        <attr name="pwBarLength" format="dimension" />
+        <attr name="pwContourColor" format="color" />
+        <attr name="pwContourSize" format="dimension" />
+    </declare-styleable>
+
+    <!--带提示的进度条-->
+    <declare-styleable name="TipsProgressBar">
+        <attr name="ropeMax" format="integer"/>
+        <attr name="ropeProgress" format="integer"/>
+        <attr name="ropePrimaryColor" format="color"/>
+        <attr name="ropeSecondaryColor" format="color"/>
+        <attr name="ropeStrokeWidth" format="dimension"/>
+        <attr name="ropeTextSize" format="dimension"/>
+        <attr name="ropeTextColor" format="color"/>
+        <attr name="ropeTipBackground" format="color"/>
+
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f6f7fb"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.rongxun.xqlc.Activities.ModifySafePassActivity"
+    tools:showIn="@layout/activity_modify_safe_pass">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/s50"
+        android:layout_marginTop="@dimen/s15"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="请输入原密码"
+            android:textColor="#666666"
+            android:textSize="@dimen/s14" />
+
+        <EditText
+            android:id="@+id/safe_pass_modify_old"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="8"
+            android:background="@drawable/edittext_background_selector"
+            android:focusable="true"
+            android:hint="请输入原密码"
+            android:inputType="textPassword"
+            android:maxLength="16"
+            android:paddingLeft="15dp"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="#999999"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/s14" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#e2e2e2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/s50"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="设置新交易密码"
+            android:textColor="#666666"
+            android:textSize="@dimen/s14" />
+
+
+        <EditText
+            android:id="@+id/safe_pass_modify_new"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="8"
+            android:background="#ffffff"
+            android:hint="密码长度6-20位"
+            android:inputType="textPassword"
+            android:maxLength="16"
+            android:paddingLeft="15dp"
+
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="#999999"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/s14" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#e2e2e2" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/s50"
+        android:layout_marginBottom="15dp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="设置新交易密码"
+            android:textColor="#666666"
+            android:textSize="@dimen/s14" />
+
+        <EditText
+            android:id="@+id/safe_pass_modify_new_twice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="8"
+            android:background="@drawable/edittext_background_selector"
+            android:hint="请重复输入密码"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:paddingLeft="15dp"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="#999999"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/s14" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#e2e2e2" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/safe_pass_modify_forget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="忘记密码?"
+            android:textColor="#666666"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/safe_pass_modify_submit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/button_background_grey"
+        android:gravity="center"
+        android:text="确认修改"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/s18"
+
+        />
+
+
+</LinearLayout>

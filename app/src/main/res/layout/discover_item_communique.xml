@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:layout_centerVertical="true">
+    <TextView
+        android:id="@+id/discover_communique_txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:text="中国银行升级维护公告"
+        android:lines="1"
+        android:paddingRight="30dp"
+        android:singleLine="true"
+        android:textColor="#333333"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/discover_communique_txt_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/discover_communique_txt_title"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="5dp"
+        android:text="中国银行升级维护公告"
+        android:textColor="#aaaaaa"
+        android:textSize="12dp" />
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:background="@mipmap/arrow_more" />
+</RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="16dp"
+        android:layout_alignParentBottom="true"
+        android:background="#e6e6e6"/>
+
+</RelativeLayout>

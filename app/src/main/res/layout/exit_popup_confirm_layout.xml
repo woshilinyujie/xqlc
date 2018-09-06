@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <TextView
+        android:background="#ffffff"
+        android:textColor="#999999"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="服务时间：工作日9:00-17:30" />
+
+    <Button
+        android:id="@+id/popu_service_online"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/button_write_background_poput"
+        android:text="在线客服"
+        android:textColor="#ffffff"
+        android:textSize="16dp" />
+
+    <Button
+        android:id="@+id/popu_service_phone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_write_background_poput"
+        android:text="热线电话"
+        android:textColor="#ffffff"
+        android:textSize="16dp" />
+
+    <Button
+        android:id="@+id/popu_service_cancle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_background_grey"
+        android:text="取消"
+        android:textColor="#ffffff"
+        android:textSize="16dp" />
+</LinearLayout>

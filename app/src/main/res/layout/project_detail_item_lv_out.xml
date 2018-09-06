@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f6f7fb" />
+    <!--债务人信息-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/s45">
+
+        <ImageView
+            android:id="@+id/project_detail_img_out"
+            android:layout_width="@dimen/s25"
+            android:layout_height="@dimen/s25"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/s20"
+            android:background="@mipmap/project_debtor"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/project_detail_txt_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/s16"
+            android:layout_toRightOf="@id/project_detail_img_out"
+            android:text="债务人信息"
+            android:textColor="#ff7977"
+            android:textSize="@dimen/s14" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/s20"
+        android:layout_marginRight="@dimen/s20"
+        android:background="#f6f7fb" />
+
+    <com.rongxun.xqlc.UI.ProjectDetailListView
+        android:id="@+id/project_detail_in_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/s18"
+        android:layout_marginTop="@dimen/s18"
+        android:divider="@null" />
+
+</LinearLayout>

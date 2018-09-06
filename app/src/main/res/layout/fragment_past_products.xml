@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="com.rongxun.xqlc.Fragments.PastProductsFragment">
+
+    <com.rongxun.xqlc.UI.PullToRefreshLayout
+        android:id="@+id/sell_out_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.rongxun.xqlc.UI.LoadListView
+            android:id="@+id/sell_out_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#ffffff"
+            android:dividerHeight="0dp" />
+
+    </com.rongxun.xqlc.UI.PullToRefreshLayout>
+
+    <!--网络错误背景-->
+    <RelativeLayout
+        android:id="@+id/past_product_rel_rate_rel_net_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/net_error" />
+
+        <TextView
+            android:id="@+id/txt_net_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#bbbbbb"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
