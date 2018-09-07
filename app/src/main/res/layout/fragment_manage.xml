@@ -6,6 +6,7 @@
     tools:context="com.rongxun.xqlc.Fragments.ManageFragment">
     <!--标题栏-->
     <RelativeLayout
+        android:background="#ffffff"
         android:id="@+id/manage_rel_title"
         android:layout_width="match_parent"
         android:layout_height="45dp">
@@ -14,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="理财专区"
+            android:text="投资"
             android:textColor="#666666"
             android:textSize="@dimen/s16" />
     </RelativeLayout>

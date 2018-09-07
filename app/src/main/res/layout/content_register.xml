@@ -8,42 +8,7 @@
     android:orientation="vertical">
 
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        app:elevation="0sp">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/repayment_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorWhite"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
-
-            <com.rongxun.xqlc.UI.IconFontTextView
-                android:id="@+id/register_back"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="left"
-                android:gravity="center"
-                android:text="@string/angle_left"
-                android:textColor="@color/colorBlack"
-                android:textSize="24dp"
-
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:text="注册"
-                android:textColor="@color/colorBlack"
-                android:textSize="18dp"
-                android:visibility="visible" />
-        </android.support.v7.widget.Toolbar>
-    </android.support.design.widget.AppBarLayout>
 
     <com.rongxun.xqlc.UI.BianSeTextView
         android:layout_marginLeft="20dp"
@@ -63,7 +28,7 @@
         android:gravity="center"
         android:text="登录密码必须为6-20位数字和字母组合"
         android:textColor="#999999"
-        android:textSize="@dimen/s16" />
+        android:textSize="13dp" />
 
 
 
@@ -87,6 +52,7 @@
             android:layout_weight="4">
 
             <EditText
+                android:gravity="center_vertical"
                 android:id="@+id/register_password"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/s50"
@@ -123,19 +89,20 @@
 
 
         <EditText
+            android:gravity="center_vertical"
             android:id="@+id/register_imagine_number"
             android:layout_width="match_parent"
             android:layout_height="@dimen/s50"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:background="#ffffff"
             android:hint="注册邀请码（选填）"
             android:inputType="number"
             android:maxLength="11"
             android:paddingBottom="5dp"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
+            android:background="@null"
             android:textColorHint="#bbbbbb"
             android:textSize="@dimen/s14" />
 
@@ -144,6 +111,7 @@
 
 
     <Button
+        android:gravity="center"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:id="@+id/register"
@@ -196,5 +164,6 @@
             android:visibility="gone" />
 
     </LinearLayout>
+
 </LinearLayout>
 

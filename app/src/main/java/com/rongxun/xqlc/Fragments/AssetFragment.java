@@ -102,9 +102,9 @@ public class AssetFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         initView();
         initListener();
         cash.setText("总资产(元)");
-        benjin_tv.setText("投资中本金");
-        tixian_tv.setText("提现中金额");
-        yue_tv.setText("可用余额");
+        benjin_tv.setText("待收本金(元)");
+        tixian_tv.setText("提现冻结金额(元)");
+        yue_tv.setText("现金余额(元)");
         investment_incentive_rl.setVisibility(View.GONE);
         //显示百分比
         mChart.setUsePercentValues(true);
@@ -411,7 +411,6 @@ public class AssetFragment extends Fragment implements SwipeRefreshLayout.OnRefr
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    mChart.setVisibility(View.VISIBLE);
                     no_cash.setVisibility(View.GONE);
                 }
             });

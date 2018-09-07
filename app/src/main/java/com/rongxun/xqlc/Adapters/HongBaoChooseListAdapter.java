@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -174,26 +175,18 @@ public class HongBaoChooseListAdapter extends BaseAdapter {
                 viewHolder.hongbaoListItemTimeLine = (TextView) convertView.findViewById(R.id.hongbao_list_item_time_line);
                 viewHolder.money_line = (TextView) convertView.findViewById(R.id.hongbao_list_item_money_line);
                 viewHolder.type = (TextView) convertView.findViewById(R.id.hongbao_list_item_type);
+                viewHolder.type1 = (TextView) convertView.findViewById(R.id.hongbao_list_item_type1);
+                viewHolder.hb_bg_rl = (RelativeLayout) convertView.findViewById(R.id.hb_bg_rl);
                 convertView.setTag(viewHolder);
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
 
 
-//            int isApp = HongbaoDateBean.getIsApp();
-//            int isPc = HongbaoDateBean.getIsPc();
-//            String type = "";
-//            if (isApp == 1 && isPc == 1) {
-//                type = "—通用";
-//            } else if (isApp == 1 && isPc != 1) {
-//                type = "—移动端";
-//            } else if (isApp != 1 && isPc == 1) {
-//                type = "—电脑端";
-//            }
-
-            viewHolder.hongbaoListItemDeadLine.setText("" + sdf.format(HongbaoDateBean.getEndTime()));
-            viewHolder.hongbaoListItemTimeLine.setText("1.项目期限满" + HongbaoDateBean.getLimitStart() + " 天可用");
-            viewHolder.money_line.setText("2.项目金额满" + HongbaoDateBean.getInvestFullMomey() + " 元可用");
+            viewHolder.type1.setText(HongbaoDateBean.getSourceStringMore());
+            viewHolder.hongbaoListItemDeadLine.setText("该优惠券将于" + sdf.format(HongbaoDateBean.getEndTime())+"到期");
+            viewHolder.hongbaoListItemTimeLine.setText("项目期限满" + HongbaoDateBean.getLimitStart() + "天可用");
+            viewHolder.money_line.setText("单笔投资满" + HongbaoDateBean.getInvestFullMomey() + "元可用");
             viewHolder.hongbaoListItemNumber.setText(df.format(HongbaoDateBean.getMoney()) + "");
             viewHolder.type.setText(HongbaoDateBean.getName());
             System.out.println(HongbaoDateBean.isright + "+++++++++++");
@@ -205,7 +198,7 @@ public class HongBaoChooseListAdapter extends BaseAdapter {
 
             final ViewHolder finalViewHolder = viewHolder;
 
-            viewHolder.hongbaoChooseBox.setOnClickListener(new View.OnClickListener() {
+            viewHolder.hb_bg_rl.setOnClickListener(new View.OnClickListener() {
 
                 Intent intent = new Intent("HbBroadCast");
                 int InvestFullMomey = 0;
@@ -324,29 +317,30 @@ public class HongBaoChooseListAdapter extends BaseAdapter {
                 viewHolder.jiaxi_type = (TextView) convertView.findViewById(R.id.hongbao_list_item_jiaxi_type);
                 viewHolder.jiaxi_money_line = (TextView) convertView.findViewById(R.id.hongbao_list_item_jiaxi_money_line);
                 viewHolder.jiaxiBox = (ImageView) convertView.findViewById(R.id.hongbao_choose_jiaxi_box);
+                viewHolder.hb_bg_rl = (RelativeLayout) convertView.findViewById(R.id.hb_bg_rl);
                 convertView.setTag(viewHolder);
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
-            viewHolder.jiaxi_dead_line.setText("" + sdf.format(jiaxiListBean.getEndTime()));
+            viewHolder.jiaxi_dead_line.setText("该优惠券将于" + sdf.format(jiaxiListBean.getEndTime())+"到期");
             viewHolder.jiaxi_number.setText(Double.parseDouble(df1.format(jiaxiListBean.getApr()* 36))  + "%");
             if (jiaxiListBean.getTimeLimitStart() == 0 && jiaxiListBean.getTimeLimitEnd() == 0) {
-                viewHolder.jiaxi_limit.setText("项目期限：无限制");
+                viewHolder.jiaxi_limit.setText("无限制");
             } else if (jiaxiListBean.getTimeLimitStart() > 0 && jiaxiListBean.getTimeLimitEnd() == 0) {
-                viewHolder.jiaxi_limit.setText("项目期限：满" + jiaxiListBean.getTimeLimitStart() + "天可用");
+                viewHolder.jiaxi_limit.setText("期限满" + jiaxiListBean.getTimeLimitStart() + "天可用");
             } else if (jiaxiListBean.getTimeLimitStart() == 0 && jiaxiListBean.getTimeLimitEnd() > 0) {
-                viewHolder.jiaxi_limit.setText("项目期限：小于" + jiaxiListBean.getTimeLimitEnd() + "天可用");
+                viewHolder.jiaxi_limit.setText("期限小于" + jiaxiListBean.getTimeLimitEnd() + "天可用");
             } else {
-                viewHolder.jiaxi_limit.setText("项目期限：" + jiaxiListBean.getTimeLimitStart() + "天至" + jiaxiListBean.getTimeLimitEnd() + "天可用");
+                viewHolder.jiaxi_limit.setText("期限" + jiaxiListBean.getTimeLimitStart() + "天至" + jiaxiListBean.getTimeLimitEnd() + "天可用");
             }
 
             viewHolder.jiaxi_time.setVisibility(View.VISIBLE);
             if (jiaxiListBean.getDays() != 0) {
-                viewHolder.jiaxi_time.setText("加息时长: " + jiaxiListBean.getDays() + "天");
+                viewHolder.jiaxi_time.setText("可加息" + jiaxiListBean.getDays() + "天");
             } else {
-                viewHolder.jiaxi_time.setText("加息时长: 无限期");
+                viewHolder.jiaxi_time.setText("无限期");
             }
-            viewHolder.jiaxi_type.setText(jiaxiListBean.getName());
+            viewHolder.jiaxi_type.setText(jiaxiListBean.getSourceStringMore());
 
             if (jiaxiListBean.getAmountMin() == 0 && jiaxiListBean.getAmountMax() > 0) {
                 viewHolder.jiaxi_money_line.setText("单笔投资小于" + jiaxiListBean.getAmountMax() + "元可用");
@@ -365,7 +359,7 @@ public class HongBaoChooseListAdapter extends BaseAdapter {
             }
 
             final ViewHolder finalViewHolder = viewHolder;
-            viewHolder.jiaxiBox.setOnClickListener(new View.OnClickListener() {
+            viewHolder.hb_bg_rl.setOnClickListener(new View.OnClickListener() {
                 Intent intent = new Intent("HbBroadCast");
 
                 @Override
@@ -477,6 +471,7 @@ public class HongBaoChooseListAdapter extends BaseAdapter {
         CheckBox hongbaoChooseBox;
         TextView hongbaoListItemDeadLine;
         TextView hongbaoListItemTimeLine;
+        TextView type1;
         public TextView money_line;
         TextView jiaxi_number;
         TextView jiaxi_dead_line;
@@ -486,6 +481,7 @@ public class HongBaoChooseListAdapter extends BaseAdapter {
         TextView jiaxi_money_line;
         TextView type;
         ImageView jiaxiBox;
+        RelativeLayout hb_bg_rl;
 
     }
 

@@ -146,12 +146,12 @@ public class ManageFragment extends BaseFragment {
                  * 因为添加头部，所以真实数据位置-1
                  * 因为设置头尾不可点击所以不需要考虑下标越界
                  */
-                int relPosition = position - 1;
+                int relPosition = position ;
 
                 if (relPosition <= 0 || relPosition == markData.size()) {
                     return;
                 }
-                if (markData.get(position - 1).getTypes() == ManageBean.ITEM) {
+                if (markData.get(position ).getTypes() == ManageBean.ITEM) {
                     //如果是item类型则响应点击事件
                     ContentBean bean = (ContentBean) markData.get(relPosition);
                     Intent intent = new Intent(mActivity, ManageDetailActivity.class);

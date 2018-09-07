@@ -49,15 +49,15 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="#ffffff"
-        app:tl_indicator_color="#fa5454"
+        app:tl_indicator_color="#3574fa"
         app:tl_indicator_height="1.5dp"
         app:tl_indicator_width_equal_title="true"
         app:tl_tab_space_equal="true"
-        app:tl_textSelectColor="#fa5454"
-        app:tl_textUnselectColor="#808080"
+        app:tl_textSelectColor="#3574fa"
+        app:tl_textUnselectColor="#999999"
         app:tl_textsize="@dimen/s14"
         app:tl_underline_color="#ffffff"
-        app:tl_underline_height="1dp" />
+        app:tl_underline_height="2dp" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/past_product_vp"

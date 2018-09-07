@@ -464,6 +464,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.HistoryHongbaoActivity" />
         <activity android:name=".Activities.HistoryJiaxiActivity"></activity>
+        <activity android:name=".Activities.RegisterActivityCode"></activity>
     </application>
 
 </manifest>

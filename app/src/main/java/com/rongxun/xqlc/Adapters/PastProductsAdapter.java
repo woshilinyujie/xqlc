@@ -74,13 +74,6 @@ public class PastProductsAdapter extends BaseAdapter {
 
         DecimalFormatUtil util = DecimalFormatUtil.getInstance();
 
-        //顶部分割线
-        if (position == 0) {
-            //显示
-            holder.split.setVisibility(View.VISIBLE);
-        } else {
-            holder.split.setVisibility(View.GONE);
-        }
 
         holder.txtMarkNum.setText(bean.getName());//设置 xxx标第xxx期
         holder.txtEarings.setText(util.getDouble2(bean.getApr()));//年化收益率
@@ -185,7 +178,6 @@ public class PastProductsAdapter extends BaseAdapter {
             baifenhao = (TextView) v.findViewById(R.id.past_product_txt_percent);
             tian = (TextView) v.findViewById(R.id.past_product_tian);
             imgSellorRepay = (TextView) v.findViewById(R.id.past_product_img_sell_or_repay);
-            split = v.findViewById(R.id.past_product_view_split);
             add = (LinearLayout) v.findViewById(R.id.past_product_li_add_rote);
             bar = (TipsProgressBar) v.findViewById(R.id.past_product_progress);
 

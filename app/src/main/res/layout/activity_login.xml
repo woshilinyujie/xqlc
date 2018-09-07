@@ -45,6 +45,7 @@
 
 
         <EditText
+            android:gravity="center_vertical"
             android:layout_marginTop="70dp"
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
@@ -62,6 +63,7 @@
             android:textColorHint="#999999"
             android:textSize="@dimen/s15" />
         <Button
+            android:gravity="center"
             android:id="@+id/login_regist_next"
             android:layout_width="match_parent"
             android:layout_height="@dimen/s50"

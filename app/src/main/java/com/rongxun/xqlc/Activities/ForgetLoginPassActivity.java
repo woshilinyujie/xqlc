@@ -73,7 +73,6 @@ public class ForgetLoginPassActivity extends MyBaseActivity {
         setContentView(R.layout.activity_request_verify_code);
 
         initView();
-        initToolBar();
         listener();
 
         countDownTimer = new CountDownTimer(1000 * AppConstants.VerifyCodeTimeFuture, 1000 * AppConstants.VerifyCodeTimeInteral) {
@@ -165,18 +164,6 @@ public class ForgetLoginPassActivity extends MyBaseActivity {
         MobclickAgent.onPause(this);
     }
 
-    public void initToolBar() {
-        requestVerifyCodeToolbarBack.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        finish();
-                    }
-                }
-        );
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-    }
 
     /**
      * 请求获取验证码

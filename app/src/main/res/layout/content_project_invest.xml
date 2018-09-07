@@ -198,6 +198,7 @@
                 android:background="@drawable/shape_invest_white">
 
                 <TextView
+                    android:textColor="#333333"
                     android:id="@+id/invest_money_type"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
@@ -234,6 +235,8 @@
                 </LinearLayout>
 
                 <EditText
+                    android:inputType="number"
+                    android:background="@null"
                     android:id="@+id/project_invest_tender_money"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -245,7 +248,7 @@
                     android:hint="请输入投资金额"
                     android:textColor="#333333"
                     android:textColorHint="#999999"
-                    android:textSize="@dimen/s14" />
+                    android:textSize="15dp" />
 
                 <View
                     android:layout_width="1px"

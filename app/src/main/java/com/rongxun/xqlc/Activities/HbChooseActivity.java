@@ -58,8 +58,8 @@ public class HbChooseActivity extends MyBaseActivity implements HongBaoChooseLis
     private TextView count;
     private TextView increase;
     private String certainMoneyLast;//记录上一次投资的钱
-    private Button hongbao_bt;
-    private Button jiaxi_bt;
+    private TextView hongbao_bt;
+    private TextView jiaxi_bt;
     private LinearLayout hongbao_ll;
     private LinearLayout jiaxi_ll;
     private ListView list_jiaxi;
@@ -74,6 +74,7 @@ public class HbChooseActivity extends MyBaseActivity implements HongBaoChooseLis
     private int timeLimit;
     private View point_one;
     private View point_two;
+    private TextView txtExplain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,16 +171,16 @@ public class HbChooseActivity extends MyBaseActivity implements HongBaoChooseLis
             hongbao_ll.setVisibility(View.VISIBLE);
             hbChooseListView.setVisibility(View.VISIBLE);
             list_jiaxi.setVisibility(View.GONE);
-            hongbao_bt.setBackgroundColor(Color.parseColor("#fa5454"));
-            jiaxi_bt.setBackgroundColor(Color.parseColor("#cccccc"));
+            hongbao_bt.setBackgroundColor(Color.parseColor("#ffffff"));
+            jiaxi_bt.setBackgroundColor(Color.parseColor("#ffffff"));
         } else {
 
             hbChooseListView.setVisibility(View.GONE);
             list_jiaxi.setVisibility(View.VISIBLE);
             jiaxi_ll.setVisibility(View.VISIBLE);
             hongbao_ll.setVisibility(View.GONE);
-            jiaxi_bt.setBackgroundColor(Color.parseColor("#fa5454"));
-            hongbao_bt.setBackgroundColor(Color.parseColor("#cccccc"));
+            jiaxi_bt.setBackgroundColor(Color.parseColor("#ffffff"));
+            hongbao_bt.setBackgroundColor(Color.parseColor("#ffffff"));
         }
     }
 
@@ -187,6 +188,7 @@ public class HbChooseActivity extends MyBaseActivity implements HongBaoChooseLis
         hbChooseToolbarBack = (IconFontTextView) findViewById(R.id.hb_choose_toolbar_back);
         hbChooseToolbarTitle = (TextView) findViewById(R.id.hb_choose_toolbar_title);
         hbChooseToolbarOk = (TextView) findViewById(R.id.hb_choose_toolbar_ok);
+        txtExplain = (TextView) findViewById(R.id.hb_choose_txt_explain);
         hbChooseToolbar = (Toolbar) findViewById(R.id.hb_choose_toolbar);
         hbChooseListView = (ListView) findViewById(R.id.hb_choose_list_view);
         choose_hb = (TextView) findViewById(R.id.choose_hb);
@@ -194,9 +196,9 @@ public class HbChooseActivity extends MyBaseActivity implements HongBaoChooseLis
         count = (TextView) findViewById(R.id.hb_choose_count);
         increase = (TextView) findViewById(R.id.choose_hb_increase);
         //红包按钮
-        hongbao_bt = (Button) findViewById(R.id.hb_choose_hongbao_bt);
+        hongbao_bt = (TextView) findViewById(R.id.hb_choose_hongbao_bt);
         //加息按钮
-        jiaxi_bt = (Button) findViewById(R.id.hb_choose_jiaxi_bt);
+        jiaxi_bt = (TextView) findViewById(R.id.hb_choose_jiaxi_bt);
         //加息list
         hongbao_ll = (LinearLayout) findViewById(R.id.hb_choose_hongbao_ll);
         jiaxi_ll = (LinearLayout) findViewById(R.id.hb_choose_jiaxi_ll);
@@ -248,63 +250,6 @@ public class HbChooseActivity extends MyBaseActivity implements HongBaoChooseLis
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        for (projectInitBean.DataBean item : hongbaoList) {
-                            if (item.isright) {
-                                //统计红包总额
-                                selectedHbSum += item.getMoney();
-                                //使用的 红包id
-                                hongbaoArray.append(item.getId() + "" + ",");
-
-                            }
-                        }
-                        Log.i(TAG, hongbaoArray.toString() + "   ...........");
-                        if (hongbaoArray.length() > 0) {
-                            hongBaoArrayString = hongbaoArray.substring(0, hongbaoArray.length() - 1);
-                        } else {
-                            hongBaoArrayString = "";
-                        }
-
-
-                        System.out.println("--------------------" + hongBaoArrayString);
-                        Intent intent = new Intent();
-                        //使用红包的金额总和
-                        intent.putExtra("hongBaoCount", selectedHbSum);
-                        //使用红包的ID
-                        intent.putExtra("hongBaoArray", hongBaoArrayString);
-                        //红包集合回传 确保数据统一
-                        intent.putExtra("hbListString", gson.toJson(hongbaoList));
-                        //加息卷集合回传 确保数据统一
-                        intent.putExtra("jiaxijuanListString", gson.toJson(jiaxiList));
-                        intent.putExtra("jiaxiMoney", jiaxiMoney);
-                        if (certainMoney == null) {
-                            intent.putExtra("certainMoney", getIntent().getStringExtra("tenderMoney"));
-                            certainMoneyLast = getIntent().getStringExtra("tenderMoney");
-                        } else {
-                            //certainMoney 投资的金额   回传 当前certainMoney是选择红包后 累加的
-                            intent.putExtra("certainMoney", certainMoney);
-                            certainMoneyLast = certainMoney;
-                        }
-                        if(jiaxiList!=null){
-                            for(projectInitBean.CouponListBean item :jiaxiList){
-                                if(item.isRight){
-                                    //使用加息卷的ID
-                                    intent.putExtra("jiaxijuanID", item.getId());
-                                    //加息卷百分比
-                                    intent.putExtra("jiaxijuanPercentage",Double.parseDouble(df1.format(item.getApr()* 36)) );
-                                    if(jiaxiInverstMoney==null){
-                                        intent.putExtra("certainMoney", getIntent().getStringExtra("tenderMoney"));
-                                        certainMoneyLast = getIntent().getStringExtra("tenderMoney");
-                                    }else{
-                                        intent.putExtra("certainMoney", jiaxiInverstMoney);
-                                        certainMoneyLast=jiaxiInverstMoney;
-                                    }
-                                }
-                            }
-                        }
-
-
-                        setResult(AppConstants.ChooseHongBaoOkCode, intent);
-                        finish();
                     }
                 }
         );
@@ -317,8 +262,8 @@ public class HbChooseActivity extends MyBaseActivity implements HongBaoChooseLis
                 hongbao_ll.setVisibility(View.VISIBLE);
                 hbChooseListView.setVisibility(View.VISIBLE);
                 list_jiaxi.setVisibility(View.GONE);
-                hongbao_bt.setBackgroundColor(Color.parseColor("#3574FA"));
-                jiaxi_bt.setBackgroundColor(Color.parseColor("#999999"));
+                hongbao_bt.setBackgroundColor(Color.parseColor("#ffffff"));
+                jiaxi_bt.setBackgroundColor(Color.parseColor("#ffffff"));
                 point_one.setVisibility(View.VISIBLE);
                 point_two.setVisibility(View.GONE);
             }
@@ -335,8 +280,8 @@ public class HbChooseActivity extends MyBaseActivity implements HongBaoChooseLis
                 list_jiaxi.setVisibility(View.VISIBLE);
                 jiaxi_ll.setVisibility(View.VISIBLE);
                 hongbao_ll.setVisibility(View.GONE);
-                jiaxi_bt.setBackgroundColor(Color.parseColor("#3574FA"));
-                hongbao_bt.setBackgroundColor(Color.parseColor("#999999"));
+                jiaxi_bt.setBackgroundColor(Color.parseColor("#ffffff"));
+                hongbao_bt.setBackgroundColor(Color.parseColor("#ffffff"));
             }
         });
 
@@ -415,6 +360,7 @@ public class HbChooseActivity extends MyBaseActivity implements HongBaoChooseLis
                 }
 
             }
+            ok();
         }
     }
 
@@ -443,5 +389,66 @@ public class HbChooseActivity extends MyBaseActivity implements HongBaoChooseLis
     public void onResume() {
         MobclickAgent.onResume(this);
         super.onResume();
+    }
+
+
+    public void ok(){
+        for (projectInitBean.DataBean item : hongbaoList) {
+            if (item.isright) {
+                //统计红包总额
+                selectedHbSum += item.getMoney();
+                //使用的 红包id
+                hongbaoArray.append(item.getId() + "" + ",");
+
+            }
+        }
+        Log.i(TAG, hongbaoArray.toString() + "   ...........");
+        if (hongbaoArray.length() > 0) {
+            hongBaoArrayString = hongbaoArray.substring(0, hongbaoArray.length() - 1);
+        } else {
+            hongBaoArrayString = "";
+        }
+
+
+        System.out.println("--------------------" + hongBaoArrayString);
+        Intent intent = new Intent();
+        //使用红包的金额总和
+        intent.putExtra("hongBaoCount", selectedHbSum);
+        //使用红包的ID
+        intent.putExtra("hongBaoArray", hongBaoArrayString);
+        //红包集合回传 确保数据统一
+        intent.putExtra("hbListString", gson.toJson(hongbaoList));
+        //加息卷集合回传 确保数据统一
+        intent.putExtra("jiaxijuanListString", gson.toJson(jiaxiList));
+        intent.putExtra("jiaxiMoney", jiaxiMoney);
+        if (certainMoney == null) {
+            intent.putExtra("certainMoney", getIntent().getStringExtra("tenderMoney"));
+            certainMoneyLast = getIntent().getStringExtra("tenderMoney");
+        } else {
+            //certainMoney 投资的金额   回传 当前certainMoney是选择红包后 累加的
+            intent.putExtra("certainMoney", certainMoney);
+            certainMoneyLast = certainMoney;
+        }
+        if(jiaxiList!=null){
+            for(projectInitBean.CouponListBean item :jiaxiList){
+                if(item.isRight){
+                    //使用加息卷的ID
+                    intent.putExtra("jiaxijuanID", item.getId());
+                    //加息卷百分比
+                    intent.putExtra("jiaxijuanPercentage",Double.parseDouble(df1.format(item.getApr()* 36)) );
+                    if(jiaxiInverstMoney==null){
+                        intent.putExtra("certainMoney", getIntent().getStringExtra("tenderMoney"));
+                        certainMoneyLast = getIntent().getStringExtra("tenderMoney");
+                    }else{
+                        intent.putExtra("certainMoney", jiaxiInverstMoney);
+                        certainMoneyLast=jiaxiInverstMoney;
+                    }
+                }
+            }
+        }
+
+
+        setResult(AppConstants.ChooseHongBaoOkCode, intent);
+        finish();
     }
 }

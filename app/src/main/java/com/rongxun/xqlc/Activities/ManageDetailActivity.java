@@ -465,7 +465,6 @@ public class ManageDetailActivity extends MyBaseActivity implements View.OnClick
     }
 
 
-
     /**
      * 设置标的数据
      */
@@ -473,7 +472,7 @@ public class ManageDetailActivity extends MyBaseActivity implements View.OnClick
 
         DecimalFormatUtil df = DecimalFormatUtil.getInstance();
         DateUtil date = DateUtil.getInstance();
-        if(detailBean.getType().equals("16")){
+        if (detailBean.getType().equals("16")) {
             relWelfare.setVisibility(View.GONE);
             shouguanLL.setVisibility(View.GONE);
             view.setVisibility(View.GONE);
@@ -484,7 +483,7 @@ public class ManageDetailActivity extends MyBaseActivity implements View.OnClick
         yearEarning = df.getDouble2(detailBean.getYearApr());
         //基础收益
         baseApr = df.getDouble2(detailBean.getBaseApr());
-        txtYearRote.setText(detailBean.getYearApr()+"");
+        txtYearRote.setText(detailBean.getYearApr() + "");
 //日收益
 //        dayEarning = detailBean.getApr();
 //        //加息
@@ -503,17 +502,17 @@ public class ManageDetailActivity extends MyBaseActivity implements View.OnClick
         expireDate = detailBean.getExpireDate();
         timeLimit = detailBean.getTimeLimit();
         //锁定期
-        txtLockDay.setText(timeLimit+"天");
+        txtLockDay.setText(timeLimit + "天");
         //起投金额
-        txtLowMoney.setText(detailBean.getLowestAccount()+"元");
+        txtLowMoney.setText(detailBean.getLowestAccount() + "元");
         //总金额
         if (detailBean.getAccount() != null && !detailBean.getAccount().equals("")) {
-            txtAllMoney.setText(df.getInt(Double.parseDouble(detailBean.getAccount()))+"元");
+            txtAllMoney.setText(df.getInt(Double.parseDouble(detailBean.getAccount())) + "元");
         } else {
             txtAllMoney.setText("--");
         }
         //剩余可投
-        txtRemain.setText(df.getInt(Double.parseDouble(detailBean.getBalance()))+"元");
+        txtRemain.setText(df.getInt(Double.parseDouble(detailBean.getBalance())) + "元");
         //进度条
         bar.animateProgress(detailBean.getShowSchedule() * 10);
         //发布时间
@@ -531,7 +530,7 @@ public class ManageDetailActivity extends MyBaseActivity implements View.OnClick
         //设置标的类型
         type = detailBean.getType();
         //新手隐藏收官
-        if(type.equals("16")){
+        if (type.equals("16")) {
             shouguanLL.setVisibility(View.GONE);
         }
     }
@@ -633,48 +632,48 @@ public class ManageDetailActivity extends MyBaseActivity implements View.OnClick
                 String invest = btnInvestmentOK.getText().toString();
                 if (!PreventFastClickUtils.isFastClick()) {
 
-                    if (invest.equals("立即购买")) {
-                        if(detailBean.getLogo().equals("0")){
-                            isInvsetment();
-                        }else{
-                            //风险测评
-                            Intent h5 = new Intent(this, H5JSActivity.class);
-                            h5.putExtra("web_url", detailBean.getAppraisalURL());
-                            h5.putExtra("EvaluateFlag", "1");
-                            this.startActivityForResult(h5,0x0001);
-                        }
-                    } else {
-                        //已还完 ——————>返回投资列表
-                        finish();
-                    }
+//                    if (invest.equals("立即购买")) {
+//                        if(detailBean.getLogo().equals("0")){
+                    isInvsetment();
+//                        }else{
+//                            //风险测评
+//                            Intent h5 = new Intent(this, H5JSActivity.class);
+//                            h5.putExtra("web_url", detailBean.getAppraisalURL());
+//                            h5.putExtra("EvaluateFlag", "1");
+//                            this.startActivityForResult(h5,0x0001);
+//                        }
+                } else {
+                    //已还完 ——————>返回投资列表
+                    finish();
                 }
-                break;
 
-            case R.id.manage_image_calculator:
-                // TODO: 2017/8/22 0022
-                if (calculatorPopupWindow == null) {
-                    calculatorPopupWindow = new CalculatorPopupWindow(this);
-                }
-                //设置计算器年化收益
-                if (txtYearRote != null) {
-                    calculatorPopupWindow.setYearEarning(yearEarning);
-                }
-                //设置计算器投资期限
-                if (expireDate != 0)
-                    calculatorPopupWindow.setCalLimit(expireDate);
-                //设置日收益率
-                if (dayEarning != null) {
-                    calculatorPopupWindow.setDayEarning(dayEarning);
-                }
-                //显示
-                calculatorPopupWindow.showPopup();
-                break;
+        break;
 
-            default:
-                break;
+        case R.id.manage_image_calculator:
+        // TODO: 2017/8/22 0022
+        if (calculatorPopupWindow == null) {
+            calculatorPopupWindow = new CalculatorPopupWindow(this);
         }
+        //设置计算器年化收益
+        if (txtYearRote != null) {
+            calculatorPopupWindow.setYearEarning(yearEarning);
+        }
+        //设置计算器投资期限
+        if (expireDate != 0)
+            calculatorPopupWindow.setCalLimit(expireDate);
+        //设置日收益率
+        if (dayEarning != null) {
+            calculatorPopupWindow.setDayEarning(dayEarning);
+        }
+        //显示
+        calculatorPopupWindow.showPopup();
+        break;
 
+        default:
+        break;
     }
+
+}
 
     private void setButtonStatus(ManageDetailBean detailBean) {
 
@@ -816,6 +815,7 @@ public class ManageDetailActivity extends MyBaseActivity implements View.OnClick
         CustomApplication.removeActivity(this);
         OkHttpUtils.getInstance().cancelTag(this);
     }
+
     @Override
     protected void onRestart() {
         super.onRestart();
@@ -825,8 +825,8 @@ public class ManageDetailActivity extends MyBaseActivity implements View.OnClick
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-       if(resultCode==0x0001){
-           requestData();
-       }
+        if (resultCode == 0x0001) {
+            requestData();
+        }
     }
 }

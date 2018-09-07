@@ -34,9 +34,8 @@ import java.net.URLEncoder;
 public class LoginPasswordActivity extends MyBaseActivity implements View.OnClickListener {
 
     private EditText password;
-    private IconFontTextView back;
+    private ImageView back;
     private Button next;
-    private ImageView open;
     private String number;
     private boolean isClose = true;
     private TextView forget;
@@ -44,6 +43,8 @@ public class LoginPasswordActivity extends MyBaseActivity implements View.OnClic
     private String TAG = "登录";
     private SharedPreferences preferences;
     private String from;
+    private TextView tPhone;
+    private TextView login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +57,9 @@ public class LoginPasswordActivity extends MyBaseActivity implements View.OnClic
     private void initListener() {
         password.setOnClickListener(this);
         back.setOnClickListener(this);
-//        close.setOnClickListener(this);
         next.setOnClickListener(this);
-        open.setOnClickListener(this);
         forget.setOnClickListener(this);
+        login.setOnClickListener(this);
         password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -90,10 +90,12 @@ public class LoginPasswordActivity extends MyBaseActivity implements View.OnClic
         from = intent.getStringExtra("from");
         number = intent.getStringExtra("phone_number");
         password = (EditText) findViewById(R.id.login_password);
-        back = (IconFontTextView) findViewById(R.id.login_password_back);
+        back = (ImageView) findViewById(R.id.login_password_back);
         next = (Button) findViewById(R.id.login_password_next);
-        open = (ImageView) findViewById(R.id.login_password_open);
         forget = (TextView) findViewById(R.id.login_password_forget);
+        tPhone = (TextView) findViewById(R.id.login_password_phone);
+        login = (TextView) findViewById(R.id.login_password_login);
+        tPhone.setText(number);
     }
 
 
@@ -101,6 +103,9 @@ public class LoginPasswordActivity extends MyBaseActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_password_back:
+                finish();
+                break;
+            case R.id.login_password_login:
                 finish();
                 break;
             case R.id.login_password_forget:
@@ -123,19 +128,6 @@ public class LoginPasswordActivity extends MyBaseActivity implements View.OnClic
                     loaginDialog.showLoading();
                 }
                 RequestForLogin(basicUrl);
-                break;
-            case R.id.login_password_open:
-                if (isClose) {
-                    isClose = false;
-                    open.setBackgroundResource(R.mipmap.login_open);
-                    password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    password.setSelection(password.getText().toString().length());
-                } else {
-                    isClose = true;
-                    open.setBackgroundResource(R.mipmap.login_close);
-                    password.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    password.setSelection(password.getText().toString().length());
-                }
                 break;
         }
     }
@@ -231,12 +223,12 @@ public class LoginPasswordActivity extends MyBaseActivity implements View.OnClic
                                 LoginPasswordActivity.this.sendBroadcast(intent2);
                             }
                             //判断手势密码是否设置  没设置挑设置页面
-                            String code = LoginPasswordActivity.this.getSharedPreferences(number, Context.MODE_PRIVATE).getString(number, null);
-                            if(code==null){
-                                Intent intent=new Intent(LoginPasswordActivity.this,GestureCodeActivity.class);
-                                intent.putExtra("from","RegisterSuccess");
-                                LoginPasswordActivity.this.startActivity(intent);
-                            }
+//                            String code = LoginPasswordActivity.this.getSharedPreferences(number, Context.MODE_PRIVATE).getString(number, null);
+//                            if(code==null){
+//                                Intent intent=new Intent(LoginPasswordActivity.this,GestureCodeActivity.class);
+//                                intent.putExtra("from","RegisterSuccess");
+//                                LoginPasswordActivity.this.startActivity(intent);
+//                            }
 
                             LoginPasswordActivity.this.finish();
 

@@ -454,6 +454,7 @@
 
                 <!--立即抢购-->
                 <Button
+                    android:gravity="center"
                     android:id="@+id/home_btn_buy"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/s45"

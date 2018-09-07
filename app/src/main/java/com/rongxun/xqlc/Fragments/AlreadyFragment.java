@@ -112,12 +112,12 @@ public class AlreadyFragment extends Fragment implements SwipeRefreshLayout.OnRe
         rootView = inflater.inflate(R.layout.fragment_asset, container, false);
         initView();
         initListener();
-        benjin_tv.setText("已到账利息");
-        tixian_tv.setText("已使用红包");
-        yue_tv.setText("普通奖励收益");
+        benjin_tv.setText("已使用折扣圈(元)");
+
+        yue_tv.setText("已收利息(元)");
+        tixian_tv.setText("现金奖励(元)");
+
         cash.setText("累计收益(元)");
-        investment_incentive_rl.setVisibility(View.VISIBLE);
-        investment_incentive_rl1.setVisibility(View.VISIBLE);
         point_rect_purple.setVisibility(View.VISIBLE);
         point_rect_purple2.setVisibility(View.VISIBLE);
         purple_percent_tv.setVisibility(View.VISIBLE);
@@ -210,8 +210,14 @@ public class AlreadyFragment extends Fragment implements SwipeRefreshLayout.OnRe
         purple1_rl = (RelativeLayout) rootView.findViewById(R.id.all_property_purple1_rl);
         purple1_ll = (LinearLayout) rootView.findViewById(R.id.all_property_purple1_ll);
         p1 = (TextView) rootView.findViewById(R.id.property_p1);
+
+
         p2 = (TextView) rootView.findViewById(R.id.property_p2);
+
+
         p3 = (TextView) rootView.findViewById(R.id.property_p3);
+
+
         p4 = (TextView) rootView.findViewById(R.id.property_p4);
         p5 = (TextView) rootView.findViewById(R.id.property_p6);
         benjin_tv = (TextView) rootView.findViewById(R.id.benjin_tv);
@@ -293,9 +299,16 @@ public class AlreadyFragment extends Fragment implements SwipeRefreshLayout.OnRe
                                 double SumJLmoney = Double.parseDouble(leijibean.getSumJLmoney());
                                 double SumHYSY = Double.parseDouble(leijibean.getSumHYSY());
                                 double SumJXSY = Double.parseDouble(leijibean.getSumJXMoney());
-                                p1.setText(KeepTwoUtil.keep2Decimal(SumInterest) + "元");
-                                p2.setText(KeepTwoUtil.keep2Decimal(SumhbMoneyUse) + "元");
-                                p3.setText(KeepTwoUtil.keep2Decimal(SumJLmoney) + "元");
+                                p1.setText(KeepTwoUtil.keep2Decimal(SumhbMoneyUse) + "元");
+                                p2.setText(KeepTwoUtil.keep2Decimal(SumJLmoney) + "元");
+                                p3.setText(KeepTwoUtil.keep2Decimal(SumInterest) + "元");
+
+
+
+//                                p1.setText(KeepTwoUtil.keep2Decimal(SumInterest) + "元");
+//                                p2.setText(KeepTwoUtil.keep2Decimal(SumhbMoneyUse) + "元");
+//                                p3.setText(KeepTwoUtil.keep2Decimal(SumJLmoney) + "元");
+
                                 p4.setText(KeepTwoUtil.keep2Decimal(SumHYSY) + "元");
                                 p5.setText(KeepTwoUtil.keep2Decimal(SumJXSY) + "元");
                                 //设置中心的String
@@ -453,7 +466,7 @@ public class AlreadyFragment extends Fragment implements SwipeRefreshLayout.OnRe
             colors.add(Color.parseColor("#ce63fb"));
             colors.add(Color.parseColor("#FFEA00"));
 
-            mChart.setVisibility(View.VISIBLE);
+//            mChart.setVisibility(View.VISIBLE);
             no_cash.setVisibility(View.GONE);
         }
 

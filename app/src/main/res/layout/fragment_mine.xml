@@ -66,8 +66,8 @@
                                     android:text="--"
                                     android:textColor="#333333"
                                     android:textSize="12dp" />
-
                                 <TextView
+                                    android:id="@+id/login_content_account_phone"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
@@ -77,12 +77,14 @@
                                     android:textSize="12dp" />
 
 
+
                             </LinearLayout>
 
 
                         </LinearLayout>
 
                         <TextView
+                            android:textSize="12dp"
                             android:id="@+id/setting_rl"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -425,7 +427,7 @@
 
                     <TextView
                         android:id="@+id/login_content_table_row_charge"
-                        android:layout_width="80dp"
+                        android:layout_width="70dp"
                         android:layout_height="28dp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
@@ -485,8 +487,8 @@
                                 android:layout_marginLeft="30dp"
                                 android:layout_centerVertical="true"
                                 android:id="@+id/imageView"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:background="@mipmap/login_content_my_invest" />
 
                             <TextView
@@ -573,8 +575,8 @@
                             <ImageView
                                 android:layout_marginLeft="30dp"
                                 android:layout_centerVertical="true"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:background="@mipmap/login_content_financial_details" />
 
                             <TextView
@@ -631,8 +633,8 @@
                                 <ImageView
                                     android:layout_marginLeft="30dp"
                                     android:layout_centerVertical="true"
-                                    android:layout_width="35dp"
-                                    android:layout_height="35dp"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
                                     android:background="@mipmap/login_content_hb" />
 
                                 <TextView
@@ -676,8 +678,8 @@
                             <ImageView
                                 android:layout_marginLeft="30dp"
                                 android:layout_centerVertical="true"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:background="@mipmap/login_content_award" />
 
                             <TextView
@@ -809,8 +811,8 @@
 
                     <ImageView
                         android:id="@+id/my_iv3"
-                        android:layout_width="@dimen/s22"
-                        android:layout_height="@dimen/s22"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
                         android:layout_centerVertical="true"
                         android:background="@mipmap/login_content_recommend" />
 
@@ -850,8 +852,8 @@
 
                     <ImageView
                         android:id="@+id/my_iv5"
-                        android:layout_width="@dimen/s22"
-                        android:layout_height="@dimen/s22"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
                         android:layout_centerVertical="true"
                         android:background="@mipmap/login_content_help" />
 
@@ -899,8 +901,8 @@
 
                     <ImageView
                         android:id="@+id/mine_img_update"
-                        android:layout_width="@dimen/s22"
-                        android:layout_height="@dimen/s22"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
                         android:layout_centerVertical="true"
                         android:background="@mipmap/feedback" />
 
@@ -948,8 +950,8 @@
 
                     <ImageView
                         android:id="@+id/my_iv7"
-                        android:layout_width="@dimen/s22"
-                        android:layout_height="@dimen/s22"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
                         android:layout_centerVertical="true"
                         android:background="@mipmap/contactus" />
 

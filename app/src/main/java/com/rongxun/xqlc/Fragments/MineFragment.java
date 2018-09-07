@@ -124,6 +124,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private CustomerServiceBean bean;
     private LoadingDialog loadingDialog;
     private String hongbao_countS;
+    private TextView phone;
 
 
     public MineFragment() {
@@ -180,7 +181,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         login_content_invest_layout = (LinearLayout) rootView.findViewById(R.id.login_content_invest_layout);
         login_content_money_back_layout = (LinearLayout) rootView.findViewById(R.id.login_content_money_back_layout);
         login_content_my_recommend = (LinearLayout) rootView.findViewById(R.id.login_content_my_recommend);
-
+        phone = (TextView) rootView.findViewById(R.id.login_content_account_phone);
         login_content_account_name = (TextView) rootView.findViewById(R.id.login_content_account_name);
         mine_ll_already_logged_in = (LinearLayout) rootView.findViewById(R.id.mine_ll_already_logged_in);
         login_content_login_registration_ll = (LinearLayout) rootView.findViewById(R.id.login_content_login_registration_ll);
@@ -480,8 +481,9 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                             isornologin(mmActivity);
                             //请求成功，通知activity
                             if (principalBeen.getUsername() != null && principalBeen.getUsername().length() == 11) {
-                                userName.setText(principalBeen.getUsername().substring(0, 3) + "****" + principalBeen.getUsername().substring(7));
+                                phone.setText(principalBeen.getUsername().substring(0, 3) + "****" + principalBeen.getUsername().substring(7));
                             }
+                            userName.setText("*"+principalBeen.getRealName().substring(1,principalBeen.getRealName().length()));
                             if (isClose == true) {
                                 today.setText(KeepTwoUtil.keep2Decimal(principalBeen.getTotal()));
                                 if (principalBeen.getLjsy() != null) {

@@ -41,6 +41,7 @@
                 android:visibility="visible" />
 
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/name_explain_rl"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"

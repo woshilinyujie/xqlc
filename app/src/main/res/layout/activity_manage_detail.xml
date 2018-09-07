@@ -173,7 +173,7 @@
                             android:layout_marginLeft="@dimen/s18"
                             android:layout_marginRight="@dimen/s18"
                             app:ropeMax="1000"
-                            app:ropePrimaryColor="#fa9a54"
+                            app:ropePrimaryColor="#ffffff"
                             app:ropeSecondaryColor="#50ffffff"
                             app:ropeStrokeWidth="3dp"
                             app:ropeTextColor="#ffffff"

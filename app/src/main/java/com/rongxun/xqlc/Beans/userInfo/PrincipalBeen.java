@@ -51,6 +51,15 @@ public class PrincipalBeen implements Serializable{
     private String rmg;
     private String tzNum;
 
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    private String realName;
 
     private String kqNum;
 

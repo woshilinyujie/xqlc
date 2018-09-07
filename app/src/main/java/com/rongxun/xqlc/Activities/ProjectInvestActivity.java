@@ -201,19 +201,19 @@ public class ProjectInvestActivity extends MyBaseActivity {
 
     private void initDate() {
         invest_name.setText(getIntent().getStringExtra("name"));
-        least_money.setText(getIntent().getStringExtra("leastmoney"));
+        least_money.setText(getIntent().getStringExtra("leastmoney")+"元");
         //限购
         if (TextUtils.isEmpty(projectInitBean.getMostAccount())) {
             ll2.setVisibility(View.GONE);
         } else {
             money_limit.setText(projectInitBean.getMostAccount());
         }
-        peroid.setText(projectInitBean.getApr() + "");//预期年利率
+        peroid.setText(projectInitBean.getApr() + "%");//预期年利率
         date.setText(projectInitBean.getTimeLimit() + "天");//项目期限
 //        projectInvestLowestTender.setText(lowestTender);
-        projectInvestAbleTender.setText(availableTender);
+        projectInvestAbleTender.setText(availableTender+"元");
 
-        name.setText(project);
+        name.setText("确认投资");
 
 
         //确认投资
@@ -425,7 +425,7 @@ public class ProjectInvestActivity extends MyBaseActivity {
                                     //选择的红包id归0
                                     selectedIdArrayString = "";
                                     //设置红包可用个数
-                                    projectInvestHbMoney.setTextColor(Color.parseColor("#fa5454"));
+                                    projectInvestHbMoney.setTextColor(Color.parseColor("#333333"));
                                     projectInvestHbMoney.setText(userHongbaoList.size() + "个可用");
                                     isSelect = false;
                                     final LMessageDialog dialog = new LMessageDialog(ProjectInvestActivity.this, R.style.ActionSheetDialogStyle);
@@ -482,7 +482,7 @@ public class ProjectInvestActivity extends MyBaseActivity {
         );
 
         //设置红包可用个数
-        projectInvestHbMoney.setTextColor(Color.parseColor("#fa5454"));
+        projectInvestHbMoney.setTextColor(Color.parseColor("#333333"));
         if (!isBroadcast) {
             projectInvestHbMoney.setText(userHongbaoList.size() + "个可用");
             if (userJiaxiList==null || userJiaxiList.size() == 0) {

@@ -79,7 +79,7 @@ public class RegisterActivity extends MyBaseActivity implements View.OnClickList
     private TextView negotiate;
     private LoadingDialog loaginDialog;
     private SharedPreferences preferences;
-    private IconFontTextView back;
+    private ImageView back;
 
     private Handler handler = new Handler() {
         @Override
@@ -90,6 +90,7 @@ public class RegisterActivity extends MyBaseActivity implements View.OnClickList
     private String from;
     private TextView book;
     private String code;
+    private ImageView back1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,8 +111,8 @@ public class RegisterActivity extends MyBaseActivity implements View.OnClickList
         imagine_number = (EditText) findViewById(R.id.register_imagine_number);
         password = (EditText) findViewById(R.id.register_password);
         register_rl = (RelativeLayout) findViewById(R.id.register_rl);
-        back = (IconFontTextView) findViewById(R.id.register_back);
         book = (TextView) findViewById(R.id.regiest_book);
+        back = (ImageView) findViewById(R.id.register_toolbar_back);
 
     }
 
@@ -165,7 +166,6 @@ public class RegisterActivity extends MyBaseActivity implements View.OnClickList
 
 
             case R.id.register:
-//                if (check.isChecked()) {
                     String basicUrl = AppConstants.URL_SUFFIX + "/rest/reg";
                     String passWordString = password.getText().toString();
                     if (checkForm() && register.isEnabled()) {
@@ -174,12 +174,9 @@ public class RegisterActivity extends MyBaseActivity implements View.OnClickList
                         handler.sendEmptyMessageDelayed(0, 3000);
                         RequestForRegister(basicUrl, id, passWordString, code);
                     }
-//                } else {
-//                    Toast.makeText(this, "请阅读服务协议", Toast.LENGTH_LONG).show();
-//                }
                 break;
 
-            case R.id.register_back:
+            case R.id.register_toolbar_back:
                 finish();
                 break;
         }

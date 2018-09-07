@@ -5,17 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <View
-        android:id="@+id/past_product_view_split"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#f6f7fb"
-        android:visibility="gone" />
+
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#f6f7fb" />
+        android:layout_height="1px"
+        android:background="#e2e2e2" />
 
     <RelativeLayout
         android:layout_width="match_parent"

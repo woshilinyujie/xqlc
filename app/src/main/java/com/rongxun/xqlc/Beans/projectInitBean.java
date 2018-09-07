@@ -251,6 +251,15 @@ public class projectInitBean implements Serializable{
         private int overDays;
         public boolean isright=false;
 
+        public void setSourceStringMore(String sourceStringMore) {
+            this.sourceStringMore = sourceStringMore;
+        }
+
+        public String getSourceStringMore() {
+            return sourceStringMore;
+        }
+
+        private String sourceStringMore;
         public int getId() {
             return id;
         }
@@ -501,6 +510,17 @@ public class projectInitBean implements Serializable{
         private long modifyDate;
         private int overDays;
         public boolean isRight=false;
+
+        public void setSourceStringMore(String sourceStringMore) {
+            this.sourceStringMore = sourceStringMore;
+        }
+
+        public String getSourceStringMore() {
+            return sourceStringMore;
+        }
+
+        private String sourceStringMore;
+
 
         public int getId() {
             return id;

@@ -39,6 +39,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
 import com.rongxun.xqlc.Application.CustomApplication;
 import com.rongxun.xqlc.Beans.login.LoginBean;
@@ -53,12 +54,15 @@ import com.rongxun.xqlc.Util.ClickEvent;
 import com.rongxun.xqlc.Util.PrefUtils;
 import com.rongxun.xqlc.Util.PreferenceUtil;
 import com.rongxun.xqlc.Util.Utils;
+import com.rongxun.xqlc.base64.BackAES;
 import com.rongxun.xqlc.okhttp.OkHttpUtils;
 import com.rongxun.xqlc.okhttp.builder.PostFormBuilder;
 import com.rongxun.xqlc.okhttp.callback.StringCallback;
 import com.umeng.analytics.MobclickAgent;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import okhttp3.FormBody;
@@ -69,7 +73,7 @@ public class RegisterActivityCode extends MyBaseActivity implements View.OnClick
 
     private TextView idT;
     private Button register;
-    private Button code_button;
+    private TextView code_button;
     private EditText codeE;
 //    private CheckBox check;
     private String id;
@@ -77,10 +81,11 @@ public class RegisterActivityCode extends MyBaseActivity implements View.OnClick
     private String TAG = "注册";
     private CountDownTimer countDownTimer;
     private TextView negotiate;
-    private IconFontTextView back;
+    private ImageView back;
     private String from;
     private TextView book;
     private BroadcastReceiver broadcast;
+    private String decryptString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,12 +106,10 @@ public class RegisterActivityCode extends MyBaseActivity implements View.OnClick
         idT = (TextView) findViewById(R.id.register_id);
         negotiate = (TextView) findViewById(R.id.regiest_negotiate);
         register = (Button) findViewById(R.id.register);
-        code_button = (Button) findViewById(R.id.register_code_button);
+        code_button = (TextView) findViewById(R.id.register_code_button);
         codeE = (EditText) findViewById(R.id.register_code);
-        back = (IconFontTextView) findViewById(R.id.register_back);
+        back = (ImageView) findViewById(R.id.register_back);
         book = (TextView) findViewById(R.id.regiest_book);
-        idT.setText(Html.fromHtml("注册验证码将送至您的手机 " + "<font color='#ef3e44'>" + id + "</font>" +
-                "发送短信"));
 
         //倒计时
         countDownTimer = new CountDownTimer(1000 * AppConstants.VerifyCodeTimeFuture, 1000 * AppConstants.VerifyCodeTimeInteral) {
@@ -125,7 +128,6 @@ public class RegisterActivityCode extends MyBaseActivity implements View.OnClick
                 code_button.setTextColor(Color.parseColor("#3574fa"));
             }
         };
-        countDownTimer.start();
     }
 
     private void initListener() {
@@ -145,18 +147,17 @@ public class RegisterActivityCode extends MyBaseActivity implements View.OnClick
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if ( !TextUtils.isEmpty(codeE.getText().toString() )|| codeE.getText().toString().length()<6) {
-                    register.setBackgroundResource(R.drawable.button_background_normal);
-                    register.setEnabled(false);
-                } else if(!TextUtils.isEmpty(codeE.getText().toString() )|| codeE.getText().toString().length()>=6){
-                    register.setBackgroundResource(R.drawable.button_background_grey);
-                    register.setEnabled(true);
-                }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                if ( !TextUtils.isEmpty(codeE.getText().toString() )&& codeE.getText().toString().length()<6) {
+                    register.setBackgroundResource(R.drawable.button_background_grey);
+                    register.setEnabled(false);
+                } else if(!TextUtils.isEmpty(codeE.getText().toString() )&& codeE.getText().toString().length()>=6){
+                    register.setBackgroundResource(R.drawable.button_background_normal);
+                    register.setEnabled(true);
+                }
             }
         });
     }
@@ -166,7 +167,7 @@ public class RegisterActivityCode extends MyBaseActivity implements View.OnClick
         switch (v.getId()) {
             case R.id.register_code_button:
                 if (!ClickEvent.isFastDoubleClick()) {
-                    String basicUrl = AppConstants.URL_SUFFIX + "/rest/sendPCode";
+                    String basicUrl = AppConstants.URL_SUFFIX + "/rest/userSendCode";
                     RequestForVerifyCode(basicUrl, id);
                 }
                 break;
@@ -189,12 +190,13 @@ public class RegisterActivityCode extends MyBaseActivity implements View.OnClick
 
 
             case R.id.register:
-                if(code_button.getText().toString().length()==6){
-                    Intent intent =new Intent(this,RegisterActivityCode.class);
+                if(codeE.getText().toString().length()==6){
+                    Intent intent =new Intent(this,RegisterActivity.class);
                     intent.putExtra("from",from);
                     intent.putExtra("sessionid",sessionid);
                     intent.putExtra("phone_number",id);
                     intent.putExtra("code",code_button.getText().toString());
+                    startActivity(intent);
                 }
 
                 break;
@@ -213,9 +215,21 @@ public class RegisterActivityCode extends MyBaseActivity implements View.OnClick
      */
     public void RequestForVerifyCode(String basicUrl, String phoneNoString) {
 
+        Map<String, String> m = new HashMap<String, String>();
+        m.put("phoneReg", phoneNoString);
+        String json = JSON.toJSONString(m);
+        String content = json;
+        String skey = "Ia9EKAtN4A4o8e2i";
+        try {
+            decryptString = new String(BackAES.encrypt(content, skey, 0));
+        } catch (Exception e) {
+
+        }
+
+
         okhttp3.OkHttpClient mOkHttpClient = new okhttp3.OkHttpClient();
         okhttp3.RequestBody formBody = new FormBody.Builder()
-                .add("phoneReg", phoneNoString)
+                .add("urlSign", decryptString)
                 .build();
         okhttp3.Request request = new okhttp3.Request.Builder()
                 .url(basicUrl)
@@ -248,6 +262,7 @@ public class RegisterActivityCode extends MyBaseActivity implements View.OnClick
                         public void run() {
 
                             if (resultBack.getRcd().equals("R0001")) {
+                                idT.setText(Html.fromHtml("注册验证码将送至您的手机 " + "<font color='#151515'>" + id + "</font>"));
                                 //成功
                                 countDownTimer.start();//开始倒计时
 
@@ -262,10 +277,6 @@ public class RegisterActivityCode extends MyBaseActivity implements View.OnClick
 
 
     }
-
-
-
-
 
 
     /**

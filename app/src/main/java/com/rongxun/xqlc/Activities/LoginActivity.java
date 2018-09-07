@@ -16,22 +16,26 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
 import com.rongxun.xqlc.Application.CustomApplication;
+import com.rongxun.xqlc.Beans.RegUserBean;
 import com.rongxun.xqlc.Beans.UrlBean;
-import com.rongxun.xqlc.Beans.reguser.RegUserBean;
 import com.rongxun.xqlc.R;
 import com.rongxun.xqlc.UI.IconFontTextView;
 import com.rongxun.xqlc.UI.LoadingDialog;
 import com.rongxun.xqlc.Util.AppConstants;
 import com.rongxun.xqlc.Util.Utils;
+import com.rongxun.xqlc.base64.BackAES;
 import com.rongxun.xqlc.okhttp.OkHttpUtils;
 import com.rongxun.xqlc.okhttp.callback.StringCallback;
 import com.umeng.analytics.MobclickAgent;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import okhttp3.FormBody;
@@ -39,7 +43,6 @@ import okhttp3.FormBody;
 public class LoginActivity extends MyBaseActivity {
 
     private final String TAG = "用户登录";
-    //    private static final String REGEX_MOBILE = "^((17[0-9])|(14[0-9])|(13[0-9])|(15[^4,\\D])|(18[0-9]))\\d{8}$";
     private ImageView back;
     private Intent intent;
     private String from;
@@ -52,6 +55,7 @@ public class LoginActivity extends MyBaseActivity {
     private LoadingDialog loaginDialog;
     private LoginActivityBroadcast broadcast;
     private ImageView imageView;
+    private String decryptString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,12 +84,33 @@ public class LoginActivity extends MyBaseActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String basicUrl = AppConstants.URL_SUFFIX + "/rest/sendPCode";
+                String basicUrl = AppConstants.URL_SUFFIX + "/rest/userExist";
                 String phoneNumberString = phone.getText().toString();
                 try {
                     RequestForVerifyCode(basicUrl, phoneNumberString);
-                } catch (Exception e) {
+                }catch (Exception e){
 
+                }
+            }
+        });
+
+        phone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(phone.getText().toString().length()<11){
+                    next.setBackgroundResource(R.drawable.button_background_grey);
+                }else{
+                    next.setBackgroundResource(R.drawable.shape_manage_detail_btn_ok);
                 }
             }
         });
@@ -93,14 +118,24 @@ public class LoginActivity extends MyBaseActivity {
 
     }
 
-
     public void RequestForVerifyCode(String basicUrl, final String phoneNoString) {
         loaginDialog = new LoadingDialog(this);
         loaginDialog.showLoading();
+        Map<String,String> m=new HashMap<String,String>();
+        m.put("phoneReg", phoneNoString);
+        String json = JSON.toJSONString(m);
+        String  content =json;
+        String skey = "Ia9EKAtN4A4o8e2i";
+        try{
+            decryptString =new String (BackAES.encrypt(content, skey, 0));
+        }catch (Exception e){
+
+        }
+
 
         okhttp3.OkHttpClient mOkHttpClient = new okhttp3.OkHttpClient();
         okhttp3.RequestBody formBody = new FormBody.Builder()
-                .add("phoneReg", phoneNoString)
+                .add("urlSign", decryptString)
                 .build();
         okhttp3.Request request = new okhttp3.Request.Builder()
                 .url(basicUrl)
@@ -128,19 +163,21 @@ public class LoginActivity extends MyBaseActivity {
                     @Override
                     public void run() {
                         String cookieval = response.header("Set-Cookie");
-                        if (resultBack.getRcd().equals("M0008_7")) {
-                            //进入登入密码页面
-                            Intent intent = new Intent(LoginActivity.this, LoginPasswordActivity.class);
-                            intent.putExtra("phone_number", phoneNoString);
-                            intent.putExtra("from", from);
-                            startActivityForResult(intent, 200);
-                        } else if (resultBack.getRcd().equals("R0001")) {
-                            //进入注册页面
-                            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                            intent.putExtra("phone_number", phoneNoString);
-                            intent.putExtra("from", from);
-                            intent.putExtra("sessionid", cookieval.substring(0, cookieval.indexOf(";")));
-                            startActivityForResult(intent, 200);
+                        if (resultBack.getRcd().equals("R0001")) {
+                            if(resultBack.getUserExist().equals("1")){
+                                //进入登入密码页面
+                                Intent intent = new Intent(LoginActivity.this, LoginPasswordActivity.class);
+                                intent.putExtra("phone_number", phoneNoString);
+                                intent.putExtra("from", from);
+                                startActivityForResult(intent, 200);
+                            }else{
+                                //进入注册页面
+                                Intent intent = new Intent(LoginActivity.this, RegisterActivityCode.class);
+                                intent.putExtra("phone_number", phoneNoString);
+                                intent.putExtra("from", from);
+                                intent.putExtra("sessionid", cookieval.substring(0, cookieval.indexOf(";")));
+                                startActivityForResult(intent, 200);
+                            }
                         } else {
                             Toast.makeText(LoginActivity.this, resultBack.getRmg(), Toast.LENGTH_SHORT).show();
                         }
@@ -183,10 +220,6 @@ public class LoginActivity extends MyBaseActivity {
 
     }
 
-
-//    public static boolean isMobile(String mobile) {
-//        return Pattern.matches(REGEX_MOBILE, mobile);
-//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
