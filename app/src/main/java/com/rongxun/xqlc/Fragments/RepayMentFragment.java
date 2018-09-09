@@ -101,7 +101,7 @@ public class RepayMentFragment extends Fragment {
                 InvestmentStatementsBean.UserTenderListBean userTender = tenderList.get(position);
                 int a = userTender.getBorrowStatus();
                 if (userTender.getBorrowStatus() == 1 || userTender.getBorrowStatus() == 3||userTender.getBorrowStatus() == 5||
-                        userTender.getBorrowStatus() == 7 || userTender.getIsNewbor()== 1) {
+                        userTender.getBorrowStatus() == 7) {
                     Intent intent = new Intent(getActivity(), RepayMentActivity.class);
                     if (tenderList != null) {
                         intent.putExtra("id", userTender.getTenderid());

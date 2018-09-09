@@ -60,17 +60,16 @@ public class InvestRecordListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         InvestmentStatementsBean.UserTenderListBean entity = tenderList.get(position);
         ListItemViewHolder viewHolder = null;
-        try {
             if (convertView == null) {
                 convertView = mInflater.inflate(R.layout.invest_record_list_view_item_layout, null);
                 viewHolder = new ListItemViewHolder();
                 viewHolder.tenderRecordItemBorrowName = (TextView) convertView.findViewById(R.id.tender_record_item_borrow_name);
                 viewHolder.tenderRecordItemBorrowCount = (TextView) convertView.findViewById(R.id.tender_record_item_borrow_count);
-                viewHolder.tenderRecordItemTime = (TextView) convertView.findViewById(R.id.tender_record_item_time);
+                viewHolder.textView14 = (TextView) convertView.findViewById(R.id.textView14);
                 viewHolder.tenderRecordItemProfit = (TextView) convertView.findViewById(R.id.tender_record_item_profit);
                 viewHolder.tenderRecordItemRecentTime = (TextView) convertView.findViewById(R.id.tender_record_item_recent_time);
                 viewHolder.state = (TextView) convertView.findViewById(R.id.tender_record_item_borrow_state);
-                viewHolder.tenderRecordItemProfit = (TextView) convertView.findViewById(R.id.tender_record_item_profit);
+                viewHolder.tv = (TextView) convertView.findViewById(R.id.tender_record_item_borrow_tv);
                 viewHolder.recentRl = (RelativeLayout) convertView.findViewById(R.id.tender_record_item_recent_rl);
                 convertView.setTag(viewHolder);
             } else {
@@ -82,17 +81,34 @@ public class InvestRecordListAdapter extends BaseAdapter {
             viewHolder.tenderRecordItemBorrowName.setText(entity.getBorrowName());
             viewHolder.tenderRecordItemBorrowCount.setText(format);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            viewHolder.tenderRecordItemTime.setText(sdf.format(new Date(entity.getCreateDate())));
-            viewHolder.tenderRecordItemProfit.setText(entity.getInterest());
-            viewHolder.state.setText(entity.getBorrowStatusShow());
+
+            if(entity.getBorrowStatus()==3 ){
+                viewHolder.state.setBackgroundResource(R.drawable.invest_state_yellow);
+                viewHolder.state.setText("持有中");
+                viewHolder.textView14.setText("待收回款(元)");
+                viewHolder.tv.setText("回款日");
+                viewHolder.tenderRecordItemProfit.setText(entity.getSumMoney()+"");
+            }else if(entity.getBorrowStatus()==1||entity.getBorrowStatus()==5){
+                viewHolder.state.setBackgroundResource(R.drawable.invest_state_green);
+                viewHolder.state.setText("募集中");
+                viewHolder.tv.setText("起息日");
+                viewHolder.textView14.setText("项目进度");
+                viewHolder.tenderRecordItemProfit.setText(entity.getSumMoney()+"%");
+            }else if(entity.getBorrowStatus()==7){
+                viewHolder.state.setBackgroundResource(R.drawable.invest_state_blue);
+                viewHolder.state.setText("已回款");
+                viewHolder.textView14.setText("已收回款(元)");
+                viewHolder.tv.setText("回款日");
+                viewHolder.tenderRecordItemProfit.setText(entity.getSumMoney()+"");
+            }
+
+
             if(entity.getFinalRepayDateString()!=null){
                 viewHolder.recentRl.setVisibility(View.VISIBLE);
                 viewHolder.tenderRecordItemRecentTime.setText(entity.getFinalRepayDateString());
             }else{
                 viewHolder.recentRl.setVisibility(View.GONE);
             }
-        } catch (Exception e) {
-        }
         return convertView;
     }
 
@@ -105,10 +121,11 @@ public class InvestRecordListAdapter extends BaseAdapter {
     static class ListItemViewHolder {
         TextView tenderRecordItemBorrowName;
         TextView tenderRecordItemBorrowCount;
-        TextView tenderRecordItemTime;
         TextView tenderRecordItemProfit;
         TextView tenderRecordItemRecentTime;
         TextView state;
         RelativeLayout recentRl;
+        TextView textView14;
+        TextView tv;
     }
 }

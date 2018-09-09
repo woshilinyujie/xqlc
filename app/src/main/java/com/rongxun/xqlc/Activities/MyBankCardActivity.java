@@ -132,8 +132,8 @@ public class MyBankCardActivity extends MyBaseActivity {
         if (banklist.getCardNo() == null)
             return;
 //        myBankCardUserName.setText(banklist.getRealName());
-        int length = banklist.getCardNo().length();
-        myBankCardCardId.setText("**** **** **** " + banklist.getCardNo().substring(length - 4, length));
+        int length = banklist.getCardNo().length( );
+        myBankCardCardId.setText("****      ****      ****      " + banklist.getCardNo().substring(length - 4, length));
 
         for (BankList.BankCardListBean itemn : banklist.getBankCardList()) {
             if (itemn.getBankId().equals(banklist.getBankId())) {

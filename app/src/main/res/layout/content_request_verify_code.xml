@@ -55,7 +55,7 @@
                 android:background="@mipmap/jingxuan_bg"
                 android:focusable="true"
                 android:hint="请输入您的注册手机号"
-                android:inputType="textPassword"
+                android:inputType="number"
                 android:paddingLeft="25dp"
                 android:paddingRight="25dp"
                 android:textColor="@color/colorBlack"
@@ -92,7 +92,7 @@
 
                 />
 
-            <Button
+            <TextView
                 android:id="@+id/forget_login_pass_verify_request_button"
                 android:layout_width="100dp"
                 android:layout_height="30dp"

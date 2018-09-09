@@ -262,8 +262,8 @@ public class HbChooseActivity extends MyBaseActivity implements HongBaoChooseLis
                 hongbao_ll.setVisibility(View.VISIBLE);
                 hbChooseListView.setVisibility(View.VISIBLE);
                 list_jiaxi.setVisibility(View.GONE);
-                hongbao_bt.setBackgroundColor(Color.parseColor("#ffffff"));
-                jiaxi_bt.setBackgroundColor(Color.parseColor("#ffffff"));
+                hongbao_bt.setTextColor(Color.parseColor("#3574fa"));
+                jiaxi_bt.setTextColor(Color.parseColor("#ffffff"));
                 point_one.setVisibility(View.VISIBLE);
                 point_two.setVisibility(View.GONE);
             }
@@ -274,14 +274,14 @@ public class HbChooseActivity extends MyBaseActivity implements HongBaoChooseLis
         jiaxi_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                jiaxi_bt.setTextColor(Color.parseColor("#3574fa"));
+                hongbao_bt.setTextColor(Color.parseColor("#ffffff"));
                 point_one.setVisibility(View.GONE);
                 point_two.setVisibility(View.VISIBLE);
                 hbChooseListView.setVisibility(View.GONE);
                 list_jiaxi.setVisibility(View.VISIBLE);
                 jiaxi_ll.setVisibility(View.VISIBLE);
                 hongbao_ll.setVisibility(View.GONE);
-                jiaxi_bt.setBackgroundColor(Color.parseColor("#ffffff"));
-                hongbao_bt.setBackgroundColor(Color.parseColor("#ffffff"));
             }
         });
 

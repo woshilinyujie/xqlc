@@ -91,7 +91,7 @@
             android:textColorHint="#cccccc"
             android:textSize="@dimen/s13" />
 
-        <Button
+        <TextView
             android:id="@+id/forget_safe_pass_verify_button"
             android:layout_width="@dimen/s100"
             android:layout_height="@dimen/s30"
@@ -99,12 +99,11 @@
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/iv"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/send_code"
             android:gravity="center"
             android:paddingBottom="2dp"
             android:paddingTop="2dp"
             android:text="获取验证码"
-            android:textColor="#fa5454"
+            android:textColor="#3574fa"
             android:textSize="14dp" />
 
     </LinearLayout>

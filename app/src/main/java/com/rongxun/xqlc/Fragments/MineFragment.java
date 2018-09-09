@@ -125,6 +125,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private LoadingDialog loadingDialog;
     private String hongbao_countS;
     private TextView phone;
+    private TextView dssy;
 
 
     public MineFragment() {
@@ -183,6 +184,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         login_content_my_recommend = (LinearLayout) rootView.findViewById(R.id.login_content_my_recommend);
         phone = (TextView) rootView.findViewById(R.id.login_content_account_phone);
         login_content_account_name = (TextView) rootView.findViewById(R.id.login_content_account_name);
+        dssy = (TextView) rootView.findViewById(R.id.login_content_dssy);
         mine_ll_already_logged_in = (LinearLayout) rootView.findViewById(R.id.mine_ll_already_logged_in);
         login_content_login_registration_ll = (LinearLayout) rootView.findViewById(R.id.login_content_login_registration_ll);
         login_content_islogin = (RelativeLayout) rootView.findViewById(R.id.login_content_islogin);
@@ -483,7 +485,10 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                             if (principalBeen.getUsername() != null && principalBeen.getUsername().length() == 11) {
                                 phone.setText(principalBeen.getUsername().substring(0, 3) + "****" + principalBeen.getUsername().substring(7));
                             }
-                            userName.setText("*"+principalBeen.getRealName().substring(1,principalBeen.getRealName().length()));
+                            dssy.setText(principalBeen.getInvestorCollectionInterest()+"");
+                            if (!TextUtils.isEmpty(principalBeen.getRealName())){
+                                userName.setText("*"+principalBeen.getRealName().substring(1,principalBeen.getRealName().length()));
+                            }
                             if (isClose == true) {
                                 today.setText(KeepTwoUtil.keep2Decimal(principalBeen.getTotal()));
                                 if (principalBeen.getLjsy() != null) {
@@ -776,6 +781,13 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             } else if (!TextUtils.isEmpty(quickly) && quickly.equals("cash")) {
                 RequestForMoney(null, null);
                 CustomerServiceNet();
+            }else if(!TextUtils.isEmpty(quickly) &&quickly.equals("exit")){
+                userName.setText("--");
+                phone.setText("--");
+                today.setText("--");
+                shouyiMoney.setText("--");
+                dssy.setText("--");
+                payBackMoney.setText("--");
             }
         }
     }

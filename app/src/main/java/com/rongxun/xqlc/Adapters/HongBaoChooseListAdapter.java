@@ -183,7 +183,7 @@ public class HongBaoChooseListAdapter extends BaseAdapter {
             }
 
 
-            viewHolder.type1.setText(HongbaoDateBean.getSourceStringMore());
+            viewHolder.type1.setText(HongbaoDateBean.getSourceStringMore()+"");
             viewHolder.hongbaoListItemDeadLine.setText("该优惠券将于" + sdf.format(HongbaoDateBean.getEndTime())+"到期");
             viewHolder.hongbaoListItemTimeLine.setText("项目期限满" + HongbaoDateBean.getLimitStart() + "天可用");
             viewHolder.money_line.setText("单笔投资满" + HongbaoDateBean.getInvestFullMomey() + "元可用");
@@ -340,7 +340,7 @@ public class HongBaoChooseListAdapter extends BaseAdapter {
             } else {
                 viewHolder.jiaxi_time.setText("无限期");
             }
-            viewHolder.jiaxi_type.setText(jiaxiListBean.getSourceStringMore());
+            viewHolder.jiaxi_type.setText(jiaxiListBean.getSourceStringMore()+"");
 
             if (jiaxiListBean.getAmountMin() == 0 && jiaxiListBean.getAmountMax() > 0) {
                 viewHolder.jiaxi_money_line.setText("单笔投资小于" + jiaxiListBean.getAmountMax() + "元可用");

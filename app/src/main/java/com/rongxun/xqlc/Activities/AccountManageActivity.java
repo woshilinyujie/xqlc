@@ -64,6 +64,7 @@ public class AccountManageActivity extends MyBaseActivity {
     private RelativeLayout evaluate_rl;
     private TextView evaluate_tx;
     private String evaluateUrl;
+    private TextView name;
 
 
     @Override
@@ -126,6 +127,7 @@ public class AccountManageActivity extends MyBaseActivity {
         safeText = (TextView) findViewById(R.id.safe_pass_word_text);
         evaluate_rl = (RelativeLayout) findViewById(R.id.account_manage_evaluate_rl);
         evaluate_tx = (TextView) findViewById(R.id.account_manage_evaluate_text);
+        name = (TextView) findViewById(R.id.account_manage_name);
 
         account_manage_exit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +139,6 @@ public class AccountManageActivity extends MyBaseActivity {
                     public void onClick(View view) {
                         RequestForLogout(exitUrl);
                         dialog.dismiss();
-                        finish();
                     }
                 });
                 dialog.show();
@@ -150,7 +151,7 @@ public class AccountManageActivity extends MyBaseActivity {
     public void UpdateViews(final UserBean userBean) {
         final String phoneNo = userBean.getPhone();
         final int realStatus = userBean.getRealStatus() == null ? 0 : userBean.getRealStatus().intValue();
-
+        name.setText("*"+userBean.getRealName().substring(1,userBean.getRealName().length()));
 
         //修改手势密码
         modify_code.setOnClickListener(new View.OnClickListener() {
@@ -233,7 +234,6 @@ public class AccountManageActivity extends MyBaseActivity {
                 }
             });
         } else {
-            realNameText.setTextColor(Color.parseColor("#fa5454"));
             realNameText.setText("未绑定");
             account_manage_bank.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -358,17 +358,12 @@ public class AccountManageActivity extends MyBaseActivity {
                                 editor.clear().commit();
                                 AccountManageActivity.this.getSharedPreferences("UserId", Context.MODE_PRIVATE).edit().clear().commit();
                                 PrefUtils.putBoolean(AccountManageActivity.this, "SafePassWord", false);
-                                //退出7鱼
-                                Unicorn.setUserInfo(null);
-
+                                sendBroadcast(new Intent("LoginContentBroadCast").putExtra("Quickly","exit"));
+                                finish();
                             } else {
                                 Toast.makeText(AccountManageActivity.this, "网络异常，请重试！", Toast.LENGTH_SHORT).show();
                             }
 
-
-                            Intent intent = new Intent("HomeFragmentBroadCast");
-                            intent.putExtra("Exit", 103);
-                            AccountManageActivity.this.sendBroadcast(intent);
                         }
                     }
                 });

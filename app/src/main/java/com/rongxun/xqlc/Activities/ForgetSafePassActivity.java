@@ -35,7 +35,7 @@ public class ForgetSafePassActivity extends MyBaseActivity {
     IconFontTextView forgetSafePassToolbarBack;
     TextView forgetSafePassToolbarTitle;
     Toolbar forgetSafePassToolbar;
-    Button forgetSafePassVerifyButton;
+    TextView forgetSafePassVerifyButton;
     EditText forgetSafePassVerifyCode;
     EditText forgetSafePassNewPass;
     Button forgetSafePassActionButton;
@@ -63,15 +63,13 @@ public class ForgetSafePassActivity extends MyBaseActivity {
                 forgetSafePassVerifyButton.setEnabled(false);
                 forgetSafePassVerifyButton.setText((millisUntilFinished / 1000) + "秒");
                 forgetSafePassVerifyButton.setTextColor(Color.parseColor("#cccccc"));
-                forgetSafePassVerifyButton.setBackgroundResource(R.drawable.send_code_grey);
             }
 
             @Override
             public void onFinish() {
                 forgetSafePassVerifyButton.setEnabled(true);
                 forgetSafePassVerifyButton.setText("重新发送");
-                forgetSafePassVerifyButton.setTextColor(Color.parseColor("#fa5454"));
-                forgetSafePassVerifyButton.setBackgroundResource(R.drawable.send_code);
+                forgetSafePassVerifyButton.setTextColor(Color.parseColor("#3574fa"));
             }
         };
     }
@@ -121,7 +119,7 @@ public class ForgetSafePassActivity extends MyBaseActivity {
         forgetSafePassToolbarBack = (IconFontTextView) findViewById(R.id.forget_safe_pass_toolbar_back);
         forgetSafePassToolbarTitle = (TextView) findViewById(R.id.forget_safe_pass_toolbar_title);
         forgetSafePassToolbar = (Toolbar) findViewById(R.id.forget_safe_pass_toolbar);
-        forgetSafePassVerifyButton = (Button) findViewById(R.id.forget_safe_pass_verify_button);
+        forgetSafePassVerifyButton = (TextView) findViewById(R.id.forget_safe_pass_verify_button);
         forgetSafePassVerifyCode = (EditText) findViewById(R.id.forget_safe_pass_verify_code);
         forgetSafePassNewPass = (EditText) findViewById(R.id.forget_safe_pass_new_pass);
         forgetSafePassActionButton = (Button) findViewById(R.id.forget_safe_pass_action_button);

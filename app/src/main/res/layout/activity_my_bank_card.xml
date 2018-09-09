@@ -43,6 +43,7 @@
                 android:textColor="@color/colorBlack"
                 />
             <ImageView
+                android:visibility="gone"
                 android:background="@mipmap/login_content_sevice"
                 android:layout_marginRight="15dp"
                 android:id="@+id/account_manage_toolbar_iv"

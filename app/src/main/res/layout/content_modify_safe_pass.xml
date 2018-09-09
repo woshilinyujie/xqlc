@@ -135,10 +135,7 @@
             android:textCursorDrawable="@null"
             android:textSize="@dimen/s14" />
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#e2e2e2" />
+
 
     <RelativeLayout
         android:layout_width="match_parent"

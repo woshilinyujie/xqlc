@@ -90,11 +90,7 @@ public class RegisterSuccessActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //进入密码设置页面
-        Intent intent=new Intent(RegisterSuccessActivity.this,GestureCodeActivity.class);
-        intent.putExtra("from","RegisterSuccess");
-        RegisterSuccessActivity.this.startActivity(intent);
-        CustomApplication.removeActivity(this);
+
     }
 
 

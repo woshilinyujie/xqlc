@@ -44,7 +44,7 @@ public class ForgetLoginPassActivity extends MyBaseActivity {
 
     EditText forgetLoginPassVerifyPhone;
     EditText forgetLoginPassVerifyCode;
-    Button forgetLoginPassVerifyRequestButton;
+    TextView forgetLoginPassVerifyRequestButton;
     Button forgetLoginPassVerifyActionButton;
     ImageView requestVerifyCodeToolbarBack;
 
@@ -149,7 +149,7 @@ public class ForgetLoginPassActivity extends MyBaseActivity {
         password1 = (EditText) findViewById(R.id.forget_login_password1);
             forgetLoginPassVerifyPhone = (EditText) findViewById(R.id.forget_login_pass_verify_phone);
         forgetLoginPassVerifyCode = (EditText) findViewById(R.id.forget_login_pass_verify_code);
-        forgetLoginPassVerifyRequestButton = (Button) findViewById(R.id.forget_login_pass_verify_request_button);
+        forgetLoginPassVerifyRequestButton = (TextView) findViewById(R.id.forget_login_pass_verify_request_button);
         forgetLoginPassVerifyActionButton = (Button) findViewById(R.id.forget_login_pass_verify_action_button);
         requestVerifyCodeToolbarBack = (ImageView) findViewById(R.id.request_verify_code_toolbar_back);
     }

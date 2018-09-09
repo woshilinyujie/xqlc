@@ -124,7 +124,19 @@ public class InvestmentStatementsBean {
         private int isNewbor;
         private String tenderAccount;
         private int tenderid;
+
+        public void setSumMoney(String sumMoney) {
+            this.sumMoney = sumMoney;
+        }
+
         private String finalRepayDateString;
+
+        public String getSumMoney() {
+            return sumMoney;
+        }
+
+        private String sumMoney;
+
 
         public void setFinalRepayDateString(String finalRepayDateString){
             this.finalRepayDateString=finalRepayDateString;

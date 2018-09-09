@@ -40,9 +40,9 @@ public class InvestRecordActivity extends MyBaseActivity {
         ViewPager viewPager= (ViewPager) findViewById(R.id.invest_record_pager);
         SlidingTabLayout tabLayout= (SlidingTabLayout) findViewById(R.id.invest_record_tab);
         IconFontTextView back= (IconFontTextView) findViewById(R.id.invest_record_back);
-        allFragment = RepayMentFragment.newInstance("7");
+        allFragment = RepayMentFragment.newInstance("0");
         ingFragment = RepayMentFragment.newInstance("1");
-        alreadyFragment = RepayMentFragment.newInstance("7");
+        alreadyFragment = RepayMentFragment.newInstance("2");
         titles = new String[]{"全部","持有中", "已回款"};
         al = new ArrayList<Fragment>();
         al.add(allFragment);

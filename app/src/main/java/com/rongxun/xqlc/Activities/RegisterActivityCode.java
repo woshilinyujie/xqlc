@@ -195,7 +195,7 @@ public class RegisterActivityCode extends MyBaseActivity implements View.OnClick
                     intent.putExtra("from",from);
                     intent.putExtra("sessionid",sessionid);
                     intent.putExtra("phone_number",id);
-                    intent.putExtra("code",code_button.getText().toString());
+                    intent.putExtra("code",codeE.getText().toString());
                     startActivity(intent);
                 }
 

@@ -33,34 +33,4 @@
         android:textSize="@dimen/s17" />
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/s30"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_marginRight="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="国资控股"
-            android:textColor="#999999"
-            android:textSize="@dimen/s14" />
-
-        <ImageView
-            android:background="@mipmap/safe"
-            android:layout_width="@dimen/s15"
-            android:layout_height="@dimen/s17" />
-
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="银行存管"
-            android:textColor="#999999"
-            android:textSize="@dimen/s14" />
-
-    </LinearLayout>
 </RelativeLayout>

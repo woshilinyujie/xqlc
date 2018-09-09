@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text="--"
-                    android:textColor="#fa5454"
+                    android:textColor="#ff3100"
                     android:textSize="@dimen/s14" />
 
 
