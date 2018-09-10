@@ -108,6 +108,7 @@ ChargeActivity extends MyBaseActivity {
     private String upper_limitS;
     private TextView chargeProblem;
     private UserRechargeBean recharge;
+    private TextView xiane;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +127,7 @@ ChargeActivity extends MyBaseActivity {
         chargeBankIcon = (ImageView) findViewById(R.id.charge_bank_icon);
         back = (IconFontTextView) findViewById(R.id.charge_back);
         chargeProblem = (TextView) findViewById(R.id.charge_problem);
+        xiane = (TextView) findViewById(R.id.charge_and_cash_toolbar_xiane);
         bund = (LinearLayout) findViewById(R.id.charge_and_cash_bund);
         charge = (TextView) findViewById(R.id.charge_and_cash_toolbar_title);
         chargeUrl = AppConstants.URL_SUFFIX + "/rest/rechargeTo";
@@ -164,6 +166,13 @@ ChargeActivity extends MyBaseActivity {
                         dialog.dismiss();
                     }
                 });
+            }
+        });
+
+        xiane.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }

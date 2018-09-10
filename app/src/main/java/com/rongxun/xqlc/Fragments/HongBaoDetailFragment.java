@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
@@ -112,7 +113,7 @@ public class HongBaoDetailFragment extends Fragment {
         hongbao_list_view.getHistory().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().startActivity(new Intent(getActivity(), HistoryHongbaoActivity.class));
+//                getActivity().startActivity(new Intent(getActivity(), HistoryHongbaoActivity.class));
             }
         });
     }
@@ -128,6 +129,8 @@ public class HongBaoDetailFragment extends Fragment {
         hongbao_nothing_img = (ImageView) rootView.findViewById(R.id.hongbao_nothing_img);
         hongbao_list_view = (LoadListViewHongbao) rootView.findViewById(R.id.hongbao_list_view);
         hongbao_list_view.getRootView().setBackgroundColor(Color.parseColor("#f6f7fb"));
+
+
         myAdapter = new HongBaoListAdapter(getActivity(), hongbaoList, getActivity().getLayoutInflater());
         hongbao_list_view.setAdapter(myAdapter);
 
@@ -225,6 +228,11 @@ public class HongBaoDetailFragment extends Fragment {
 
                     }
                 });
+    }
+
+
+    public void setcount(String count){
+        myAdapter.setCount(count);
     }
 
 }

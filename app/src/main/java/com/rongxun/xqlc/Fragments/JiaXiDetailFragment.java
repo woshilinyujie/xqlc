@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
@@ -45,6 +46,7 @@ public class JiaXiDetailFragment extends Fragment {
     private LoadListViewJiaxi hongbao_list_view;
     private LinearLayout hongbao_nothing_ll;
     private ImageView hongbao_nothing_img;
+    private String count;
 
     public int currentStatus;//红包类型
     private String TAG = "我的红包列表";
@@ -164,10 +166,6 @@ public class JiaXiDetailFragment extends Fragment {
      * 请求红包数据
      */
     private void RequestForListData(String basicUrl, int pageNumber, int pageSize, int status, final boolean isRefreshing) {
-//        if (loadingDialog == null) {
-//            loadingDialog = new LoadingDialog(getActivity());
-//            loadingDialog.show();
-//        }
         OkHttpUtils.post()
                 .url(basicUrl)
                 .addParams("token", PreferenceUtil.getPrefString(getActivity(), "loginToken", ""))
@@ -186,7 +184,6 @@ public class JiaXiDetailFragment extends Fragment {
                             jiaxiList.clear();
                             myAdapter.notifyDataSetChanged();
                         }
-//                        hongbao_list_view.setVisibility(View.GONE);
                         hongbao_nothing_ll.setVisibility(View.GONE);
                         if (isRefreshing) {
                             repay_ment_swip_layout.delayRefreshFinish(PullToRefreshLayout.FAIL, 800);
@@ -200,10 +197,6 @@ public class JiaXiDetailFragment extends Fragment {
 
                     @Override
                     public void onResponse(String response, int id) {
-//                        if (loadingDialog != null && loadingDialog.isShowing()) {
-//                            loadingDialog.dismiss();
-//                            loadingDialog = null;
-//                        }
                         String s = response.toString();
                         Log.i(TAG, s);
                         final UserJIaxiBean resultBean = JSON.parseObject(s, UserJIaxiBean.class);
@@ -233,5 +226,7 @@ public class JiaXiDetailFragment extends Fragment {
                     }
                 });
     }
-
+    public void setcount(String count){
+        myAdapter.setCount(count);
+    }
 }

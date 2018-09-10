@@ -92,7 +92,7 @@ public class LoadListViewHongbao extends ListView implements OnScrollListener, P
             isLoading = true; // 将加载更多进行时状态设置为true
             bar.setVisibility(VISIBLE);
             txtTip.setText("正在加载中...");
-            rootView.setVisibility(VISIBLE); // 显示加载更多布局
+            rootView.setVisibility(GONE); // 显示加载更多布局
             //速度太快，延时300,体现效果
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -125,9 +125,9 @@ public class LoadListViewHongbao extends ListView implements OnScrollListener, P
         if (currentData == allData) {
             //没有更多了
             //底部可见
-            rootView.setVisibility(VISIBLE);
+//            rootView.setVisibility(VISIBLE);
             //
-            txtTip.setText("查看历史红包  ");
+            txtTip.setText("");
             //隐藏bar
             bar.setVisibility(GONE);
             //设置最后一页
@@ -135,8 +135,8 @@ public class LoadListViewHongbao extends ListView implements OnScrollListener, P
 
         } else {
             //还可以上拉
-            txtTip.setText("查看历史红包  ");
-            rootView.setVisibility(VISIBLE);
+            txtTip.setText("");
+//            rootView.setVisibility(VISIBLE);
             bar.setVisibility(GONE);
             //不是最后一页
             isLastPager = false;

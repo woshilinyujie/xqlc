@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_marginRight="25dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/jx_foot_use"
+        android:gravity="center"
+        android:text="立刻使用"
+        android:textSize="15dp"
+        android:textColor="#3574fa"
+        android:background="@drawable/send_code"
+        android:layout_width="110dp"
+        android:layout_height="30dp"/>
+
+    <TextView
+        android:id="@+id/jx_foot_count"
+        android:textColor="#999999"
+        android:text="--张"
+        android:layout_marginRight="15dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/jx_foot_use"
+        android:textSize="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

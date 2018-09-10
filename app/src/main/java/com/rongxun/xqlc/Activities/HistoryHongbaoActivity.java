@@ -34,7 +34,7 @@ import java.util.ArrayList;
 
 import okhttp3.Call;
 
-public class HistoryHongbaoActivity extends MyBaseActivity implements View.OnClickListener {
+public class HistoryHongbaoActivity extends MyBaseActivity {
 
     private String basicUrl = AppConstants.URL_SUFFIX + "/rest/hbListLooked";
     private String basicUrlJiaxi = AppConstants.URL_SUFFIX + "/rest/cpListLooked";
@@ -45,10 +45,6 @@ public class HistoryHongbaoActivity extends MyBaseActivity implements View.OnCli
     private String[] titles;
     private TextView explanation;
     private ViewPager hongbao_pager;
-    private String unused, used, haveExpired;
-    private LoadingDialog loadingDialog;
-    private Button jiaxi_jiaxi;
-    private Button jiaxi_hongbao;
     private JiaXiDetailFragment unusedJiaxiFragment;
     private TextView title;
 
@@ -65,16 +61,12 @@ public class HistoryHongbaoActivity extends MyBaseActivity implements View.OnCli
         IconFontTextView back = (IconFontTextView) findViewById(R.id.hongbao_back);
         hongbao_pager = (ViewPager) findViewById(R.id.hongbao_pager);
         explanation = (TextView) findViewById(R.id.hongbao_explain);
-        jiaxi_hongbao = (Button) findViewById(R.id.hongbao_jiaxi_hongbao);
-        jiaxi_jiaxi = (Button) findViewById(R.id.hongbao_jiaxi_jiaxi);
         title = (TextView) findViewById(R.id.hongbao_title);
         usedFragment = HistoryHongBaoDetailFragment.newInstance(1);
         haveExpiredFragment = HistoryHongBaoDetailFragment.newInstance(2);
         fragmentList = new ArrayList<>();
         fragmentList.add(usedFragment);
         fragmentList.add(haveExpiredFragment);
-        jiaxi_hongbao.setOnClickListener(this);
-        jiaxi_jiaxi.setOnClickListener(this);
 
         explanation.setVisibility(View.GONE);
 
@@ -86,31 +78,7 @@ public class HistoryHongbaoActivity extends MyBaseActivity implements View.OnCli
         });
 
         hongbao_pager.setAdapter(new InnerPagerAdapter(getSupportFragmentManager()));
-        jiaxi_hongbao.setText("已使用");
-        jiaxi_jiaxi.setText("已过期");
         title.setText("历史红包");
-        hongbao_pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if(position==0){
-                    jiaxi_hongbao.setBackgroundColor(Color.parseColor("#fa5454"));
-                    jiaxi_jiaxi.setBackgroundColor(Color.parseColor("#cccccc"));
-                }else {
-                    jiaxi_jiaxi.setBackgroundColor(Color.parseColor("#fa5454"));
-                    jiaxi_hongbao.setBackgroundColor(Color.parseColor("#cccccc"));
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
     }
 
 
@@ -121,22 +89,6 @@ public class HistoryHongbaoActivity extends MyBaseActivity implements View.OnCli
         CustomApplication.removeActivity(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.hongbao_jiaxi_hongbao:
-                jiaxi_hongbao.setBackgroundColor(Color.parseColor("#FA5454"));
-                jiaxi_jiaxi.setBackgroundColor(Color.parseColor("#cccccc"));
-                hongbao_pager.setCurrentItem(0);
-                break;
-            case R.id.hongbao_jiaxi_jiaxi:
-                jiaxi_hongbao.setBackgroundColor(Color.parseColor("#cccccc"));
-                jiaxi_jiaxi.setBackgroundColor(Color.parseColor("#FA5454"));
-                hongbao_pager.setCurrentItem(1);
-                break;
-        }
-
-    }
 
 
     public void onResume() {

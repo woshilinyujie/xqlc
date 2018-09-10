@@ -99,7 +99,6 @@ public class RepayMentFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 InvestmentStatementsBean.UserTenderListBean userTender = tenderList.get(position);
-                int a = userTender.getBorrowStatus();
                 if (userTender.getBorrowStatus() == 1 || userTender.getBorrowStatus() == 3||userTender.getBorrowStatus() == 5||
                         userTender.getBorrowStatus() == 7) {
                     Intent intent = new Intent(getActivity(), RepayMentActivity.class);
@@ -107,6 +106,7 @@ public class RepayMentFragment extends Fragment {
                         intent.putExtra("id", userTender.getTenderid());
                         intent.putExtra("projectId", userTender.getBorrowId());
                         intent.putExtra("name", userTender.getBorrowName());
+                        intent.putExtra("state", userTender.getBorrowStatus()+"");
                     }
                     startActivity(intent);
                 }

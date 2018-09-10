@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -34,7 +35,7 @@ import java.util.ArrayList;
 
 import okhttp3.Call;
 
-public class HongBaoActivity extends MyBaseActivity implements View.OnClickListener {
+public class HongBaoActivity extends MyBaseActivity  {
 
     private String basicUrl = AppConstants.URL_SUFFIX + "/rest/hbListLooked";
     private String basicUrlJiaxi = AppConstants.URL_SUFFIX + "/rest/cpListLooked";
@@ -42,15 +43,13 @@ public class HongBaoActivity extends MyBaseActivity implements View.OnClickListe
     HongBaoDetailFragment usedFragment;
     HongBaoDetailFragment haveExpiredFragment;
     private ArrayList<Fragment> fragmentList;
-    private String[] titles;
     private TextView explanation;
     private ViewPager hongbao_pager;
     //    private SlidingTabLayout hongbao_tab;
     private String unused, used, haveExpired;
     private LoadingDialog loadingDialog;
-    private Button jiaxi_jiaxi;
-    private Button jiaxi_hongbao;
     private JiaXiDetailFragment unusedJiaxiFragment;
+    private TabLayout hongbao_tb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,20 +67,12 @@ public class HongBaoActivity extends MyBaseActivity implements View.OnClickListe
         hongbao_pager = (ViewPager) findViewById(R.id.hongbao_pager);
 //        hongbao_tab = (SlidingTabLayout) findViewById(R.id.hongbao_tab);
         explanation = (TextView) findViewById(R.id.hongbao_explain);
-        jiaxi_hongbao = (Button) findViewById(R.id.hongbao_jiaxi_hongbao);
-        jiaxi_jiaxi = (Button) findViewById(R.id.hongbao_jiaxi_jiaxi);
+        hongbao_tb = (TabLayout) findViewById(R.id.hongbao_tb);
         unusedFragment = HongBaoDetailFragment.newInstance(0);
         unusedJiaxiFragment = JiaXiDetailFragment.newInstance(0);
-//        usedFragment = HongBaoDetailFragment.newInstance(1);
-//        haveExpiredFragment = HongBaoDetailFragment.newInstance(2);
         fragmentList = new ArrayList<>();
-//        fragmentList.add(unusedFragment);
         fragmentList.add(unusedFragment);
         fragmentList.add(unusedJiaxiFragment);
-//        fragmentList.add(haveExpiredFragment);
-        jiaxi_hongbao.setOnClickListener(this);
-        jiaxi_jiaxi.setOnClickListener(this);
-
         //红包说明
         explanation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,29 +92,7 @@ public class HongBaoActivity extends MyBaseActivity implements View.OnClickListe
         });
 
         hongbao_pager.setAdapter(new InnerPagerAdapter(getSupportFragmentManager()));
-        hongbao_pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if(position==0){
-                    jiaxi_hongbao.setBackgroundColor(Color.parseColor("#FA5454"));
-                    jiaxi_jiaxi.setBackgroundColor(Color.parseColor("#cccccc"));
-                }else{
-                    jiaxi_hongbao.setBackgroundColor(Color.parseColor("#cccccc"));
-                    jiaxi_jiaxi.setBackgroundColor(Color.parseColor("#FA5454"));
-                }
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+        hongbao_tb.setupWithViewPager(hongbao_pager);
     }
 
 
@@ -134,22 +103,6 @@ public class HongBaoActivity extends MyBaseActivity implements View.OnClickListe
         CustomApplication.removeActivity(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.hongbao_jiaxi_hongbao:
-                jiaxi_hongbao.setBackgroundColor(Color.parseColor("#FA5454"));
-                jiaxi_jiaxi.setBackgroundColor(Color.parseColor("#cccccc"));
-                hongbao_pager.setCurrentItem(0);
-                break;
-            case R.id.hongbao_jiaxi_jiaxi:
-                jiaxi_hongbao.setBackgroundColor(Color.parseColor("#cccccc"));
-                jiaxi_jiaxi.setBackgroundColor(Color.parseColor("#FA5454"));
-                hongbao_pager.setCurrentItem(1);
-                break;
-        }
-
-    }
 
 
     public void onResume() {
@@ -167,10 +120,6 @@ public class HongBaoActivity extends MyBaseActivity implements View.OnClickListe
      * 请求红包数据
      */
     private void RequestForListData(String basicUrl, int pageNumber, int pageSize) {
-//        if (loadingDialog == null) {
-//            loadingDialog = new LoadingDialog(HongBaoActivity.this);
-//        }
-//        loadingDialog.show();
 
         OkHttpUtils.post()
                 .url(basicUrl)
@@ -181,10 +130,6 @@ public class HongBaoActivity extends MyBaseActivity implements View.OnClickListe
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-//                        if (loadingDialog != null && loadingDialog.isShowing()) {
-//                            loadingDialog.dismiss();
-//                            loadingDialog = null;
-//                        }
                     }
 
                     @Override
@@ -199,26 +144,16 @@ public class HongBaoActivity extends MyBaseActivity implements View.OnClickListe
                         if (resultBean.getRcd().equals("R0001")) {
                             unused = resultBean.getHbNum();
                             used = resultBean.getUseNum();
-                            haveExpired = resultBean.getExpiredNum();
-
-//                            String a = "未使用 (" + unused + ")";
-//                            String b = "已使用 (" + used + ")";
-//                            String c = "已过期 (" + haveExpired + ")";
-//                            titles = new String[]{a, b, c};
-//                            hongbao_tab.setViewPager(hongbao_pager, titles, HongBaoActivity.this, fragmentList);
-                            jiaxi_hongbao.setText("红包"+unused+"个");
+                            unusedFragment.setcount(unused);
                         }
                     }
                 });
+
     }
     /**
      * 请求加息数据
      */
     private void RequestForListDataJiaxi(String basicUrl, int pageNumber, int pageSize) {
-//        if (loadingDialog == null) {
-//            loadingDialog = new LoadingDialog(HongBaoActivity.this);
-//        }
-//        loadingDialog.show();
 
         OkHttpUtils.post()
                 .url(basicUrl)
@@ -246,21 +181,15 @@ public class HongBaoActivity extends MyBaseActivity implements View.OnClickListe
 
                         if (resultBean.getRcd().equals("R0001")) {
                             unused = resultBean.getCpNum();
-//                            used = resultBean.getUseNum();
-//                            haveExpired = resultBean.getExpiredNum();
-
-//                            String a = "未使用 (" + unused + ")";
-//                            String b = "已使用 (" + used + ")";
-//                            String c = "已过期 (" + haveExpired + ")";
-//                            titles = new String[]{a, b, c};
-//                            hongbao_tab.setViewPager(hongbao_pager, titles, HongBaoActivity.this, fragmentList);
-                            jiaxi_jiaxi.setText("加息卷"+unused+"张");
+                            unusedJiaxiFragment.setcount(unused);
                         }
                     }
                 });
     }
 
 
+
+    String titles[]={"低折扣","加息劵"};
     class InnerPagerAdapter extends FragmentPagerAdapter {
 
 
@@ -288,6 +217,11 @@ public class HongBaoActivity extends MyBaseActivity implements View.OnClickListe
         @Override
         public int getItemPosition(Object object) {
             return PagerAdapter.POSITION_NONE;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return titles[position];
         }
     }
 

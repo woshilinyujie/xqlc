@@ -183,13 +183,12 @@
                             android:singleLine="true"
                             android:text=""
                             android:textColor="#333333"
-                            android:textSize="20dp" />
+                            android:textSize="16dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginTop="5dp"
                             android:singleLine="true"
                             android:text=""
                             android:textColor="#999999"
@@ -202,7 +201,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/s60"
+                    android:layout_height="55dp"
                     android:background="@drawable/shape_invest_white"
                     android:orientation="horizontal"
                     android:paddingBottom="5dp"
@@ -220,6 +219,7 @@
                         android:textSize="@dimen/s15" />
 
                     <EditText
+                        android:gravity="center_vertical"
                         android:id="@+id/cash_money_number"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/s60"
@@ -252,7 +252,7 @@
 
 
                 <Button
-
+                    android:gravity="center"
                     android:id="@+id/cash_action_submit"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -260,9 +260,9 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="115dp"
                     android:background="@drawable/button_selector"
-                    android:text="确认提现"
+                    android:text="提现"
                     android:textColor="@color/colorWhite"
-                    android:textSize="15dp"
+                    android:textSize="18dp"
 
 
                     />
@@ -297,6 +297,7 @@
 
 
             <LinearLayout
+                android:id="@+id/cash_serves"
                 android:gravity="center"
                 android:layout_marginBottom="20dp"
                 android:layout_alignParentBottom="true"

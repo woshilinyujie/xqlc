@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -41,57 +42,23 @@ public class RepayMentActivity extends MyBaseActivity {
     private int id;//号码
     private String name;
     private TextView textName;
-    private TextView hb_play;
     private TextView money;
     private TextView profit;
-    private TextView state;
     private TextView time;
     private TextView limit;
     private Gson gson = new Gson();
     private String url;
-    private TextView text;
-    private TextView textCount;
     private Handler hander = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             if (repaBeen != null) {
                 url = repaBeen.getLoanAgreementUrl();
                 textName.setText(name);
-                if (!TextUtils.isEmpty(repaBeen.getHongbaoAmount())) {
-                    hb_play.setText(KeepTwoUtil.keep2Decimal(Double.parseDouble(repaBeen.getHongbaoAmount()))+"元");
-                }
-                if (repaBeen.getBorrowStatus() == 3) {
-                    state.setText(repaBeen.getBorrowStatusVal());
-                } else {
-                    state.setText(repaBeen.getBorrowStatusVal());
-                }
-                if(repaBeen.getJumpStatus().equals("0") &&repaBeen.getUserRepDetailList().size()==0){
-                    listView.setVisibility(View.GONE);
-                    text.setVisibility(View.VISIBLE);
-                    text.setText(repaBeen.getUserRepDetailString());
-                }
 
-                if(repaBeen.getJumpStatus().equals("2") &&repaBeen.getUserRepDetailList().size()==0){
-                    listView.setVisibility(View.GONE);
-                    text.setVisibility(View.VISIBLE);
-                    text.setText(repaBeen.getUserRepDetailString());
-                }
-
-                if(repaBeen.getUserRepDetailList().size()>0){
-                    textCount.setText("("+repaBeen.getUserRepDetailList().size()+")");
-                }else{
-                    textCount.setVisibility(View.GONE);
-                }
-                time.setText(repaBeen.getCreateTime());
+                time.setText(repaBeen.getTimeLimit());
                 money.setText(KeepTwoUtil.keep2Decimal(Double.parseDouble(repaBeen.getAccount()))+"元");
                 profit.setText(KeepTwoUtil.keep2Decimal(Double.parseDouble(repaBeen.getInterest()))+"元");
                 ment_year.setText(KeepTwoUtil.keep2Decimal(repaBeen.getApr())+"%");
-                listView.setAdapter(new RepayMentAdapter());
-                if(repaBeen.getCouponInterest().equals("0")){
-                    repay_ment_rl.setVisibility(View.GONE);
-                }else{
-                    jiaxi.setText(repaBeen.getCouponInterest()+"");
-                }
                 if(TextUtils.isEmpty(repaBeen.getRepayTime())&& repaBeen.getRepayTimeShow()!=null){
                     limit.setText(repaBeen.getRepayTimeShow());
                 }else{
@@ -104,12 +71,13 @@ public class RepayMentActivity extends MyBaseActivity {
     };
     private RepaBeen repaBeen;
     private TextView ment_year;
-    private MyListView listView;
     private Button detail;
     private Button negotiate;
     private int projectId;
-    private RelativeLayout repay_ment_rl;
-    private TextView jiaxi;
+    private String stateFlag;
+    private ImageView stateIv;
+    private TextView tv;
+    private TextView tv1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,23 +131,35 @@ public class RepayMentActivity extends MyBaseActivity {
         id = intent.getIntExtra("id", 0);
         projectId = intent.getIntExtra("projectId", 0);
         name = intent.getStringExtra("name");
+        stateFlag =intent.getStringExtra("state");
         repaymentToolbarBack = (IconFontTextView) findViewById(R.id.repayment_toolbar_back);
         textName = (TextView) findViewById(R.id.repay_ment_name);
-        hb_play = (TextView) findViewById(R.id.repay_ment_hb_play);
         money = (TextView) findViewById(R.id.repay_ment_money);
         profit = (TextView) findViewById(R.id.repay_ment_profit);
-        state = (TextView) findViewById(R.id.repay_ment_state);
         time = (TextView) findViewById(R.id.repay_ment_time);
-        text = (TextView) findViewById(R.id.repay_ment_text);
-        textCount = (TextView) findViewById(R.id.textView10);
+        stateIv = (ImageView) findViewById(R.id.repay_ment_state);
         limit = (TextView) findViewById(R.id.repay_ment_time_limit);
+        tv = (TextView) findViewById(R.id.repay_ment_tv);
         ment_year = (TextView) findViewById(R.id.repay_ment_year);
-        listView = (MyListView) findViewById(R.id.repay_ment_list);
+        tv1 = (TextView) findViewById(R.id.repay_ment_tv1);
         detail = (Button) findViewById(R.id.repay_ment_detail);
         negotiate = (Button) findViewById(R.id.repay_ment_negotiate);
-        repay_ment_rl = (RelativeLayout) findViewById(R.id.repay_ment_rl);
-        jiaxi = (TextView) findViewById(R.id.repay_ment_jiaxi);
         initToolBar();
+
+        if(stateFlag.equals("1") ||stateFlag.equals("5") ){
+            stateIv.setBackgroundResource(R.mipmap.mujizhong);
+            tv.setText("到期回款");
+            tv1.setText("投资进度");
+        }else if(stateFlag.equals("3")){ //持有
+            stateIv.setBackgroundResource(R.mipmap.chiyouzhong);
+            tv.setText("待收回款");
+        }else if(stateFlag.equals("7")){
+            stateIv.setBackgroundResource(R.mipmap.yihuikuang);
+            tv.setText("已回款");
+        }//已回
+        stateIv.measure(0,0);
+        LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (stateIv.getMeasuredWidth()/8));
+        stateIv.setLayoutParams(params);
     }
 
     public void onResume() {
@@ -240,41 +220,6 @@ public class RepayMentActivity extends MyBaseActivity {
     }
 
 
-    class RepayMentAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return repaBeen.getUserRepDetailList().size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return repaBeen.getUserRepDetailList().get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            RepaBeen.UserRepDetailListBean userRepDetailListBean = repaBeen.getUserRepDetailList().get(position);
-            convertView = View.inflate(RepayMentActivity.this, R.layout.repay_ment_item, null);
-            TextView time = (TextView) convertView.findViewById(R.id.repay_ment_item_time);
-            TextView principal = (TextView) convertView.findViewById(R.id.repay_ment_item_principal);
-            TextView interest = (TextView) convertView.findViewById(R.id.repay_ment_item_interest);
-            time.setText(userRepDetailListBean.getRepaymentDate());
-            interest.setText(userRepDetailListBean.getWaitInterest());
-            principal.setText(KeepTwoUtil.keep2Decimal(Double.parseDouble(userRepDetailListBean.getWaitAccount())));
-            if(!userRepDetailListBean.getWaitCouponInterest().equals("0")){
-                interest.setText(userRepDetailListBean.getWaitInterest()+"+"+userRepDetailListBean.getWaitCouponInterest());
-            }else{
-                interest.setText(userRepDetailListBean.getWaitInterest());
-            }
-            return convertView;
-        }
-    }
 
     @Override
     protected void onDestroy() {

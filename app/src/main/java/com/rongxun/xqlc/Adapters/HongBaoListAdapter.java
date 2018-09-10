@@ -1,6 +1,8 @@
 package com.rongxun.xqlc.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,10 +25,11 @@ public class HongBaoListAdapter extends BaseAdapter {
 
     private List<UserHongbaoViews> hongbaoList;
     private LayoutInflater mInflater;
-    private Context context;
+    private Activity context;
+    String count;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy 年 MM 月 dd");
 
-    public HongBaoListAdapter(Context context, List<UserHongbaoViews> hongbaoList, LayoutInflater mInflater) {
+    public HongBaoListAdapter(Activity context, List<UserHongbaoViews> hongbaoList, LayoutInflater mInflater) {
         this.context = context;
         this.hongbaoList = hongbaoList;
         this.mInflater = mInflater;
@@ -70,17 +73,6 @@ public class HongBaoListAdapter extends BaseAdapter {
         }
 
 
-        int isApp = entity.getIsApp() == null ? 0 : entity.getIsApp().intValue();
-        int isPc = entity.getIsPc() == null ? 0 : entity.getIsPc().intValue();
-//        String type ="";
-//        if(isApp==1&&isPc==1){
-//            type ="—通用";
-//        }else if(isApp==1&& isPc!=1){
-//            type ="—移动端";
-//        }else if(isApp!=1&& isPc==1){
-//            type ="—电脑端";
-//        }
-
         viewHolder.money.setText("2.项目金额满" + entity.getInvestFullMomey() + " 元可用");
         viewHolder.hongbaoListItemType.setText(entity.getName());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -88,6 +80,21 @@ public class HongBaoListAdapter extends BaseAdapter {
         viewHolder.hongbaoListItemTimeLine.setText("1.项目期限满" + entity.getLimitStart() + "天可用");
         SpannableString moneyText = new SpannableString(entity.getMoney().intValue() + "");
         viewHolder.hongbaoListItemNumber.setText(moneyText);
+        if(position==hongbaoList.size()-1){
+            viewHolder.count_rl.setVisibility(View.VISIBLE);
+            viewHolder.jx_foot_use.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent("HomeFragmentBroadCast");
+                    intent.putExtra("current",1);
+                    context.sendBroadcast(intent);
+                    context.finish();
+                }
+            });
+            viewHolder.jx_foot_count.setText("共"+count+"张");
+        }else{
+            viewHolder.count_rl.setVisibility(View.GONE);
+        }
         return convertView;
     }
 
@@ -100,11 +107,14 @@ public class HongBaoListAdapter extends BaseAdapter {
      */
     static class ViewHolder {
 
+        RelativeLayout count_rl;
         TextView hongbaoListItemNumber;
         TextView hongbaoListItemType;
         TextView hongbaoListItemTimeLine;
         TextView hongbaoListItemDeadLine;
         TextView money;
+        TextView jx_foot_count;
+        View jx_foot_use;
 
         ViewHolder(View view) {
             hongbaoListItemNumber = (TextView) view.findViewById(R.id.hongbao_list_item_number);
@@ -112,6 +122,14 @@ public class HongBaoListAdapter extends BaseAdapter {
             hongbaoListItemTimeLine = (TextView) view.findViewById(R.id.hongbao_list_item_time_line);
             hongbaoListItemDeadLine = (TextView) view.findViewById(R.id.hongbao_list_item_dead_line);
             money = (TextView) view.findViewById(R.id.hongbao_list_item_money_line);
+            jx_foot_count = (TextView) view.findViewById(R.id.jx_foot_count);
+            jx_foot_use =view.findViewById(R.id.jx_foot_use);
+            count_rl = (RelativeLayout) view.findViewById(R.id.count_rl);
         }
+    }
+
+
+    public void setCount(String count){
+        this.count=count;
     }
 }

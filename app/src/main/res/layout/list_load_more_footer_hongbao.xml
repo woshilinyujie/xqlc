@@ -16,7 +16,6 @@
         android:visibility="gone" />
 
     <TextView
-        android:drawableRight="@mipmap/more_tab"
         android:id="@+id/txt_loading_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

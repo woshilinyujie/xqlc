@@ -42,6 +42,7 @@ import com.rongxun.xqlc.UI.MessageDialog;
 import com.rongxun.xqlc.Util.AppConstants;
 import com.rongxun.xqlc.Util.ClickEvent;
 import com.rongxun.xqlc.Util.PreferenceUtil;
+import com.rongxun.xqlc.Util.ServiscUtil;
 import com.rongxun.xqlc.okhttp.OkHttpUtils;
 import com.rongxun.xqlc.okhttp.callback.StringCallback;
 import com.umeng.analytics.MobclickAgent;
@@ -115,6 +116,7 @@ public class CashActivity extends MyBaseActivity {
     private CashDialog dialog;
     private CashSuccessBeen resultBean;
     private int commission;
+    private LinearLayout serves;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -206,9 +208,20 @@ public class CashActivity extends MyBaseActivity {
         cashChargedTimes = (TextView) findViewById(R.id.cash_charged_times);
         cashBankIcon = (ImageView) findViewById(R.id.cash_bank_icon);
         back = (IconFontTextView) findViewById(R.id.cash_back);
+        serves = (LinearLayout) findViewById(R.id.cash_serves);
         //默认提现手续费0元
         String  Scommission="提现手续费："+ "<font color='#fa5454'>"+"0"+ "</font>"+" 元";
         count.setText(Html.fromHtml(Scommission));
+        serves.setOnClickListener(new View.OnClickListener() {
+
+            private ServiscUtil serviscUtil;
+
+            @Override
+            public void onClick(View view) {
+                serviscUtil = new ServiscUtil(CashActivity.this,back);
+                serviscUtil.initPopuptWindowExit();
+            }
+        });
     }
 
 
@@ -228,7 +241,7 @@ public class CashActivity extends MyBaseActivity {
 
         SpannableStringBuilder usedTimeText = new SpannableStringBuilder(userTimes + "笔");
         usedTimeText.setSpan(new ForegroundColorSpan(Color.RED), 0, usedTimeText.length() - 1, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-        cashAbleMoney.setText(entity.getAbleMoney());
+        cashAbleMoney.setText(entity.getAbleMoney()+"元");
         freeMoney.setText(entity.getCashFeeMoney() + "");
         cashActionSubmit.setOnClickListener(
                 new View.OnClickListener() {

@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/cash_dialog_tx1"
                 android:text="--"
-                android:textColor="#fa5454"
+                android:textColor="#ff3100"
                 android:textSize="@dimen/s16" />
 
         </RelativeLayout>
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/cash_dialog_tx2"
                 android:text="--"
-                android:textColor="#fa5454"
+                android:textColor="#ff3100"
                 android:textSize="@dimen/s16" />
 
         </RelativeLayout>
@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/cash_dialog_tx3"
                 android:text="--"
-                android:textColor="#fa5454"
+                android:textColor="#ff3100"
                 android:textSize="@dimen/s20" />
 
         </RelativeLayout>
@@ -118,7 +118,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/s11"
         android:text="输入交易密码"
-        android:textColor="#fa5454"
+        android:textColor="#ff3100"
         android:textSize="@dimen/s18" />
 
 
@@ -131,6 +131,7 @@
         android:visibility="invisible" />
 
     <EditText
+        android:gravity="center_vertical"
         android:id="@+id/cash_dialog_password"
         android:layout_width="match_parent"
         android:layout_height="@dimen/s40"
@@ -138,7 +139,7 @@
         android:background="@drawable/cash_button_grey"
         android:hint="请输入交易密码"
         android:inputType="textPassword"
-        android:paddingLeft="5dp"
+        android:paddingLeft="10dp"
         android:paddingRight="5dp"
         android:textColorHint="#999999"
         android:textSize="@dimen/s13" />

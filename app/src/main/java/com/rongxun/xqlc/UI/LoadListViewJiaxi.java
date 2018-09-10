@@ -125,9 +125,9 @@ public class LoadListViewJiaxi extends ListView implements OnScrollListener, Pul
         if (currentData == allData) {
             //没有更多了
             //底部可见
-            rootView.setVisibility(VISIBLE);
+//            rootView.setVisibility(VISIBLE);
             //
-            txtTip.setText("查看历史加息卷  ");
+            txtTip.setText("");
             //隐藏bar
             bar.setVisibility(GONE);
             //设置最后一页
@@ -135,8 +135,8 @@ public class LoadListViewJiaxi extends ListView implements OnScrollListener, Pul
 
         } else {
             //还可以上拉
-            txtTip.setText("查看历史加息卷  ");
-            rootView.setVisibility(VISIBLE);
+            txtTip.setText("");
+//            rootView.setVisibility(VISIBLE);
             bar.setVisibility(GONE);
             //不是最后一页
             isLastPager = false;

@@ -85,7 +85,7 @@ public class FinancialDetailsListAdapter extends BaseAdapter
             }
             viewHolder.financial_cash.setText(entity.getMoney());
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            viewHolder.financial_time.setText(sdf.format(new Date(entity.getCreateDate())));
+            viewHolder.financial_time.setText(entity.getCreateDate());
             viewHolder.financial_balance.setText(entity.getAbleMoney());
         }catch (Exception e){
         }

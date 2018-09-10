@@ -22,7 +22,7 @@
             android:scrollbarSize="5dp"
             android:scrollbarStyle="outsideInset"
             android:scrollbars="none"
-            android:background="#f6f7fb"
+            android:background="#ffffff"
             android:smoothScrollbar="true"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
