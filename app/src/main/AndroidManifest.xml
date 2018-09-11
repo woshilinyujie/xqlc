@@ -463,8 +463,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.HistoryHongbaoActivity" />
-        <activity android:name=".Activities.HistoryJiaxiActivity"></activity>
-        <activity android:name=".Activities.RegisterActivityCode"></activity>
+        <activity android:name=".Activities.HistoryJiaxiActivity" />
+        <activity android:name=".Activities.RegisterActivityCode" />
+        <activity android:name=".Activities.BankLimitActivity"></activity>
     </application>
 
 </manifest>

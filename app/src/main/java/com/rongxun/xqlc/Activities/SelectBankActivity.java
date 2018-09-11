@@ -58,8 +58,6 @@ public class SelectBankActivity extends MyBaseActivity implements View.OnClickLi
             }
         }
         back = (IconFontTextView) findViewById(R.id.select_bank_back);
-        listView = (ListView) findViewById(R.id.select_bank_list);
-        button = (Button) findViewById(R.id.select_bank_button);
         button.setOnClickListener(this);
         back.setOnClickListener(this);
         adapter = new SelectBankAdapter();
@@ -72,16 +70,6 @@ public class SelectBankActivity extends MyBaseActivity implements View.OnClickLi
         switch (v.getId()) {
             //返回按钮
             case R.id.select_bank_back:
-                finish();
-                break;
-            case R.id.select_bank_button:
-                if(currentPosition!=100 && currentBankCard!=null){
-                    Intent intent=new Intent("RealNameAuthActivityBroadCast");
-                    intent.putExtra("mark","selectBank");
-                    intent.putExtra("position",currentPosition);
-                    intent.putExtra("BankCard",currentBankCard);
-                    sendBroadcast(intent);
-                }
                 finish();
                 break;
         }

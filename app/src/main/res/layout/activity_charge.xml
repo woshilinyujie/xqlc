@@ -119,6 +119,7 @@
 
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/charge_and_cash_bund"
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
@@ -191,7 +192,7 @@
                         android:textSize="@dimen/s17" />
 
                     <EditText
-
+android:gravity="center_vertical"
                         android:id="@+id/charge_money_number"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/s60"
